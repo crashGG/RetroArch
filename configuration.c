@@ -739,6 +739,8 @@ static const enum location_driver_enum LOCATION_DEFAULT_DRIVER = LOCATION_NULL;
 
 #if (defined(_3DS) || defined(DINGUX)) && defined(HAVE_RGUI)
 static const enum menu_driver_enum MENU_DEFAULT_DRIVER = MENU_RGUI;
+#elif defined(IOS) && !TARGET_OS_TV
+#define MENU_DEFAULT_DRIVER (ios_running_on_ipad() ? MENU_OZONE : MENU_MATERIALUI)
 #elif defined(HAVE_MATERIALUI) && defined(RARCH_MOBILE)
 static const enum menu_driver_enum MENU_DEFAULT_DRIVER = MENU_MATERIALUI;
 #elif defined(HAVE_OZONE)
@@ -3868,8 +3870,13 @@ static bool config_load_file(global_t *global,
       free(override_username);
    }
 
-   if (settings->uints.video_hard_sync_frames > 3)
-      settings->uints.video_hard_sync_frames = 3;
+   if (settings->uints.video_hard_sync_frames > MAXIMUM_HARD_SYNC_FRAMES)
+      settings->uints.video_hard_sync_frames = MAXIMUM_HARD_SYNC_FRAMES;
+
+   if (settings->uints.video_max_swapchain_images < MINIMUM_MAX_SWAPCHAIN_IMAGES)
+      settings->uints.video_max_swapchain_images = MINIMUM_MAX_SWAPCHAIN_IMAGES;
+   if (settings->uints.video_max_swapchain_images > MAXIMUM_MAX_SWAPCHAIN_IMAGES)
+      settings->uints.video_max_swapchain_images = MAXIMUM_MAX_SWAPCHAIN_IMAGES;
 
    if (settings->uints.video_frame_delay > MAXIMUM_FRAME_DELAY)
       settings->uints.video_frame_delay = MAXIMUM_FRAME_DELAY;

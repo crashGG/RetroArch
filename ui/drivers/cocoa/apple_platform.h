@@ -12,6 +12,7 @@ extern void update_topshelf(void);
 
 #if TARGET_OS_IOS
 extern void ios_show_file_sheet(void);
+extern bool ios_running_on_ipad(void);
 #endif
 
 #ifdef __OBJC__
@@ -68,14 +69,6 @@ extern id apple_platform;
 #if defined(HAVE_COCOATOUCH)
 void rarch_start_draw_observer(void);
 void rarch_stop_draw_observer(void);
-
-#if defined(HAVE_COCOA_METAL)
-@interface MetalLayerView : UIView
-@property (nonatomic, readonly) CAMetalLayer *metalLayer;
-@end
-#endif
-
-#import <UIKit/UIKit.h>
 
 @interface RetroArch_iOS : UINavigationController<ApplePlatform, UIApplicationDelegate,
 UINavigationControllerDelegate> {

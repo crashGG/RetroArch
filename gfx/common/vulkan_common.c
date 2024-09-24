@@ -899,8 +899,10 @@ static VkInstance vulkan_context_create_instance_wrapper(void *opaque, const VkI
          required_extensions[required_extension_count++] = "VK_KHR_display";
          break;
       case VULKAN_WSI_MVK_MACOS:
+         required_extensions[required_extension_count++] = "VK_MVK_macos_surface";
+         break;
       case VULKAN_WSI_MVK_IOS:
-         required_extensions[required_extension_count++] = "VK_EXT_metal_surface";
+         required_extensions[required_extension_count++] = "VK_MVK_ios_surface";
          break;
       case VULKAN_WSI_NONE:
       default:
@@ -1675,18 +1677,36 @@ bool vulkan_surface_create(gfx_ctx_vulkan_data_t *vk,
             return false;
          break;
       case VULKAN_WSI_MVK_MACOS:
-      case VULKAN_WSI_MVK_IOS:
-#if defined(HAVE_COCOA) || defined(HAVE_COCOA_METAL) || defined(HAVE_COCOATOUCH)
+#if defined(HAVE_COCOA) || defined(HAVE_COCOA_METAL)
          {
-            VkMetalSurfaceCreateInfoEXT surf_info;
-            PFN_vkCreateMetalSurfaceEXT create;
-            if (!VULKAN_SYMBOL_WRAPPER_LOAD_INSTANCE_SYMBOL(vk->context.instance, "vkCreateMetalSurfaceEXT", create))
+            VkMacOSSurfaceCreateInfoMVK surf_info;
+            PFN_vkCreateMacOSSurfaceMVK create;
+            if (!VULKAN_SYMBOL_WRAPPER_LOAD_INSTANCE_SYMBOL(vk->context.instance, "vkCreateMacOSSurfaceMVK", create))
                return false;
 
-            surf_info.sType  = VK_STRUCTURE_TYPE_METAL_SURFACE_CREATE_INFO_EXT;
-            surf_info.pNext  = NULL;
-            surf_info.flags  = 0;
-            surf_info.pLayer = surface;
+            surf_info.sType = VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK;
+            surf_info.pNext = NULL;
+            surf_info.flags = 0;
+            surf_info.pView = surface;
+
+            if (create(vk->context.instance, &surf_info, NULL, &vk->vk_surface)
+                != VK_SUCCESS)
+               return false;
+         }
+#endif
+         break;
+      case VULKAN_WSI_MVK_IOS:
+#ifdef HAVE_COCOATOUCH
+         {
+            VkIOSSurfaceCreateInfoMVK surf_info;
+            PFN_vkCreateIOSSurfaceMVK create;
+            if (!VULKAN_SYMBOL_WRAPPER_LOAD_INSTANCE_SYMBOL(vk->context.instance, "vkCreateIOSSurfaceMVK", create))
+               return false;
+
+            surf_info.sType = VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK;
+            surf_info.pNext = NULL;
+            surf_info.flags = 0;
+            surf_info.pView = surface;
 
             if (create(vk->context.instance, &surf_info, NULL, &vk->vk_surface)
                 != VK_SUCCESS)
@@ -1966,7 +1986,7 @@ bool vulkan_create_swapchain(gfx_ctx_vulkan_data_t *vk,
    {
       /* Do not bother creating a swapchain redundantly. */
 #ifdef VULKAN_DEBUG
-      RARCH_LOG("[Vulkan]: Do not need to re-create swapchain.\n");
+      RARCH_DBG("[Vulkan]: Do not need to re-create swapchain.\n");
 #endif
       vulkan_create_wait_fences(vk);
 
@@ -2025,42 +2045,76 @@ bool vulkan_create_swapchain(gfx_ctx_vulkan_data_t *vk,
          vk->context.gpu, vk->vk_surface,
          &present_mode_count, present_modes);
 
-#ifdef VULKAN_DEBUG
-   for (i = 0; i < present_mode_count; i++)
-   {
-      RARCH_LOG("[Vulkan]: Swapchain supports present mode: %u.\n",
-            present_modes[i]);
-   }
-#endif
-
    vk->context.swap_interval = swap_interval;
+
+   /* Prefer IMMEDIATE without vsync */
    for (i = 0; i < present_mode_count; i++)
    {
       if (     !swap_interval
-            && (present_modes[i] == VK_PRESENT_MODE_MAILBOX_KHR))
-      {
-         swapchain_present_mode = VK_PRESENT_MODE_MAILBOX_KHR;
-         break;
-      }
-      else if (!swap_interval
-            && (present_modes[i] == VK_PRESENT_MODE_IMMEDIATE_KHR))
+            && !vsync
+            && present_modes[i] == VK_PRESENT_MODE_IMMEDIATE_KHR)
       {
          swapchain_present_mode = VK_PRESENT_MODE_IMMEDIATE_KHR;
          break;
       }
-      else if ( swap_interval
-            && (present_modes[i] == VK_PRESENT_MODE_FIFO_KHR))
+   }
+
+   /* If still in FIFO with no swap interval, try MAILBOX */
+   for (i = 0; i < present_mode_count; i++)
+   {
+      if (     !swap_interval
+            && swapchain_present_mode == VK_PRESENT_MODE_FIFO_KHR
+            && present_modes[i] == VK_PRESENT_MODE_MAILBOX_KHR)
       {
-         /* Kind of tautological since FIFO must always be present. */
-         swapchain_present_mode = VK_PRESENT_MODE_FIFO_KHR;
+         swapchain_present_mode = VK_PRESENT_MODE_MAILBOX_KHR;
          break;
       }
    }
 
-#ifdef VULKAN_DEBUG
-   RARCH_LOG("[Vulkan]: Creating swapchain with present mode: %u\n",
-         (unsigned)swapchain_present_mode);
-#endif
+   /* Present mode logging */
+   if (vk->swapchain == VK_NULL_HANDLE)
+   {
+      for (i = 0; i < present_mode_count; i++)
+      {
+         switch (present_modes[i])
+         {
+            case VK_PRESENT_MODE_IMMEDIATE_KHR:
+               RARCH_DBG("[Vulkan]: Swapchain supports present mode: IMMEDIATE.\n");
+               break;
+            case VK_PRESENT_MODE_MAILBOX_KHR:
+               RARCH_DBG("[Vulkan]: Swapchain supports present mode: MAILBOX.\n");
+               break;
+            case VK_PRESENT_MODE_FIFO_KHR:
+               RARCH_DBG("[Vulkan]: Swapchain supports present mode: FIFO.\n");
+               break;
+            case VK_PRESENT_MODE_FIFO_RELAXED_KHR:
+               RARCH_DBG("[Vulkan]: Swapchain supports present mode: FIFO_RELAXED.\n");
+               break;
+            default:
+               break;
+         }
+      }
+   }
+   else
+   {
+      switch (swapchain_present_mode)
+      {
+         case VK_PRESENT_MODE_IMMEDIATE_KHR:
+            RARCH_DBG("[Vulkan]: Creating swapchain with present mode: IMMEDIATE.\n");
+            break;
+         case VK_PRESENT_MODE_MAILBOX_KHR:
+            RARCH_DBG("[Vulkan]: Creating swapchain with present mode: MAILBOX.\n");
+            break;
+         case VK_PRESENT_MODE_FIFO_KHR:
+            RARCH_DBG("[Vulkan]: Creating swapchain with present mode: FIFO.\n");
+            break;
+         case VK_PRESENT_MODE_FIFO_RELAXED_KHR:
+            RARCH_DBG("[Vulkan]: Creating swapchain with present mode: FIFO_RELAXED.\n");
+            break;
+         default:
+            break;
+      }
+   }
 
    vkGetPhysicalDeviceSurfaceFormatsKHR(vk->context.gpu,
          vk->vk_surface, &format_count, NULL);
@@ -2174,11 +2228,6 @@ bool vulkan_create_swapchain(gfx_ctx_vulkan_data_t *vk,
       RARCH_DBG("[Vulkan]: Cannot create a swapchain yet. Will try again later ...\n");
       return true;
    }
-
-#ifdef VULKAN_DEBUG
-   RARCH_LOG("[Vulkan]: Using swapchain size %ux%u.\n",
-         swapchain_size.width, swapchain_size.height);
-#endif
 
    /* Unless we have other reasons to clamp, we should prefer 3 images.
     * We hard sync against the swapchain, so if we have 2 images,

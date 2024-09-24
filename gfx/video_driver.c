@@ -1081,7 +1081,13 @@ const char *video_display_server_get_ident(void)
 void* video_display_server_init(enum rarch_display_type type)
 {
    video_driver_state_t *video_st = &video_driver_st;
-   video_display_server_destroy();
+   runloop_state_t *runloop_st    = runloop_state_get_ptr();
+
+   /* Reuse when already and still running */
+   if (current_display_server && runloop_st->flags & RUNLOOP_FLAG_IS_INITED)
+      return video_st->current_display_server_data;
+   else
+      video_display_server_destroy();
 
    switch (type)
    {
@@ -2709,17 +2715,18 @@ void video_driver_build_info(video_frame_info_t *video_info)
    video_info->runloop_is_paused           = (runloop_st->flags & RUNLOOP_FLAG_PAUSED) ? true : false;
    video_info->runloop_is_slowmotion       = (runloop_st->flags & RUNLOOP_FLAG_SLOWMOTION) ? true : false;
    video_info->fastforward_frameskip       = settings->bools.fastforward_frameskip;
+   video_info->frame_time_target           = 1000000.0f / video_info->refresh_rate;
 
 #ifdef _WIN32
 #ifdef HAVE_VULKAN
    /* Vulkan in Windows does mailbox emulation
     * in fullscreen with vsync, effectively
-    * discarding frames that can't be shown,
-    * therefore do not do it twice. */
+    * already discarding frames, therefore compensate
+    * frameskip target to make it smoother and faster. */
    if (     video_info->fullscreen
          && settings->bools.video_vsync
          && string_is_equal(video_driver_get_ident(), "vulkan"))
-      video_info->fastforward_frameskip    = false;
+      video_info->frame_time_target       /= 2.0f;
 #endif
 #endif
 
@@ -3278,6 +3285,7 @@ bool video_driver_init_internal(bool *video_is_threaded, bool verbosity_enabled)
       video_st->flags |=  VIDEO_FLAG_STARTED_FULLSCREEN;
    else
       video_st->flags &= ~VIDEO_FLAG_STARTED_FULLSCREEN;
+
    /* Reset video frame count */
    video_st->frame_count             = 0;
    video_st->frame_drop_count        = 0;
@@ -3409,9 +3417,9 @@ void video_driver_frame(const void *data, unsigned width,
    static retro_time_t last_time;
    static retro_time_t curr_time;
    static retro_time_t fps_time;
-   static retro_time_t frame_time_accumulator;
    static float last_fps, frame_time;
    static uint64_t last_used_memory, last_total_memory;
+   static uint16_t frame_time_accumulator;
    /* Mark the start of nonblock state for
     * ignoring initial previous frame time */
    static int8_t nonblock_active;
@@ -3494,9 +3502,9 @@ void video_driver_frame(const void *data, unsigned width,
        && video_info.fastforward_frameskip)
 #endif
    {
-      retro_time_t frame_time_accumulator_prev = frame_time_accumulator;
-      retro_time_t frame_time_delta            = new_time - last_time;
-      retro_time_t frame_time_target           = 1000000.0f / video_info.refresh_rate;
+      uint16_t frame_time_accumulator_prev = frame_time_accumulator;
+      uint16_t frame_time_delta            = new_time - last_time;
+      uint16_t frame_time_target           = video_info.frame_time_target;
 
       /* Ignore initial previous frame time
        * to prevent rubber band startup */
@@ -4173,7 +4181,7 @@ static void video_frame_delay_leftover(video_driver_state_t *video_st,
    if (!overtime_count)
       frame_time_dev += frame_time - frame_time_target;
 
-   /* Increase reserve when doing over time */
+   /* Increase reserve when doing overtime */
    if (frame_time_over && frame_delay_cur)
    {
       if (     core_run_time >= frame_time_target
@@ -4195,6 +4203,8 @@ static void video_frame_delay_leftover(video_driver_state_t *video_st,
       if (core_run_time < frame_time_target / 1.5f)
          hold_count = refresh_rate * 2;
    }
+   else if (frame_time_over && core_run_time > frame_time_target * 1.5f)
+      hold_count = refresh_rate;
 
    /* Reserve can't exceed frame time target */
    if (video_st->frame_time_reserve > frame_time_target)
