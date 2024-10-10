@@ -10081,10 +10081,6 @@ MSG_HASH(
    "RetroAchievements サーバーにアクセスできません。成功するかアプリが閉じられるまで再試行します。"
 )
 MSG_HASH(
-   MENU_ENUM_LABEL_CHEEVOS_SERVER_RECONNECTED,
-   "すべての保留中のリクエストが RetroAchievements サーバーに同期されました。"
-)
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_IDENTIFYING_GAME,
    "ゲームを識別中"
 )
@@ -14668,6 +14664,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_CHEEVOS_HARDCORE_MODE_ENABLE,
    "実績ハードコアモードが有効になりました。ステートセーブと巻き戻しが無効になります。"
+   )
+MSG_HASH(
+   MSG_CHEEVOS_GAME_HAS_NO_ACHIEVEMENTS,
+   "このゲームには実績がありません。"
    )
 MSG_HASH(
    MSG_RESAMPLER_QUALITY_LOWEST,
