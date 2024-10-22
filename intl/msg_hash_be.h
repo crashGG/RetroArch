@@ -2522,6 +2522,18 @@ MSG_HASH(
    "Цэлалікавы маштаб"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SCALE_INTEGER_AXIS,
+   "Вось цэлалікавага маштабу"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SCALE_INTEGER_SCALING,
+   "Цэлалікавае маштабаванне"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_SCALE_INTEGER_SCALING,
+   "Акругліць у меншы або большы бок да наступнага цэлага ліку. 'Разумна' зніжае да меншага маштабу пры празмернай абрэзцы выявы."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SCALE_INTEGER_SCALING_SMART,
    "Разумнае"
    )
@@ -4051,11 +4063,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_PREEMPT_TOGGLE,
-   "Папярэджальныя кадры (пераключэнне)"
+   "Папераджальныя кадры (пераключэнне)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_PREEMPT_TOGGLE,
-   "Уключае/выключае папярэджальныя кадры."
+   "Уключае/выключае папераджальныя кадры."
    )
 
 MSG_HASH(
@@ -4403,6 +4415,10 @@ MSG_HASH(
    "Бягучае ядро ​​несумяшчальнае з забяганнем праз адсутнасць дэтэрмінаванай падтрымкі захавання стану."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RUNAHEAD_MODE,
+   "Забяганне"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RUN_AHEAD_FRAMES,
    "Колькасць кадраў забягання"
    )
@@ -4413,6 +4429,18 @@ MSG_HASH(
 #if !(defined(HAVE_DYNAMIC) || defined(HAVE_DYLIB))
 #endif
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RUNAHEAD_MODE_SINGLE_INSTANCE,
+   "Рэжым адзінага экзэмпляра"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RUNAHEAD_MODE_SECOND_INSTANCE,
+   "Рэжым другога экзэмпляра"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RUNAHEAD_MODE_PREEMPTIVE_FRAMES,
+   "Рэжым папераджальных кадраў"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RUN_AHEAD_HIDE_WARNINGS,
    "Хаваць папярэджанні забягання"
    )
@@ -4422,7 +4450,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PREEMPT_FRAMES,
-   "Колькасць папярэджальных кадраў"
+   "Колькасць папераджальных кадраў"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_PREEMPT_FRAMES,
@@ -14609,7 +14637,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_RUNAHEAD_ENABLED_WITH_SECOND_INSTANCE,
-   "Уключана забяганне з другім інстансам. Выдалена кадраў затрымкі: %u."
+   "Уключана забяганне з другім экзэмплярам. Выдалена кадраў затрымкі: %u."
    )
 MSG_HASH(
    MSG_RUNAHEAD_DISABLED,
@@ -14633,7 +14661,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_RUNAHEAD_FAILED_TO_CREATE_SECONDARY_INSTANCE,
-   "Не ўдалося стварыць другі інстанс. Забяганне будзе выкарыстоўваць толькі адзін інстанс."
+   "Не ўдалося стварыць другі экзэмпляр. Забяганне будзе выкарыстоўваць толькі адзін экзэмпляр."
    )
 MSG_HASH(
    MSG_PREEMPT_ENABLED,
@@ -14641,11 +14669,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_PREEMPT_DISABLED,
-   "Папераджальныя кадры выключаны."
+   "Папераджальныя кадры выключаныя."
    )
 MSG_HASH(
    MSG_PREEMPT_CORE_DOES_NOT_SUPPORT_SAVESTATES,
-   "Папераджальныя кадры выключаны, бо бягучае ядро ​​не падтрымлівае захаванне станаў."
+   "Папераджальныя кадры выключаныя, бо бягучае ядро ​​не падтрымлівае захаванне станаў."
    )
 MSG_HASH(
    MSG_PREEMPT_CORE_DOES_NOT_SUPPORT_PREEMPT,
@@ -14657,11 +14685,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_PREEMPT_FAILED_TO_SAVE_STATE,
-   "Не ўдалося стварыць захаванне. Папераджальныя кадры выключаны."
+   "Не ўдалося стварыць стан захавання. Папераджальныя кадры выключаныя."
    )
 MSG_HASH(
    MSG_PREEMPT_FAILED_TO_LOAD_STATE,
-   "Не атрымалася загрузіць захаванне. Папераджальныя кадры выключаны."
+   "Не атрымалася загрузіць стан. Папераджальныя кадры выключаныя."
    )
 MSG_HASH(
    MSG_SCANNING_OF_FILE_FINISHED,
