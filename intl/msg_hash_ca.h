@@ -14,7 +14,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_TAB,
-   "Opcions"
+   "Configuració"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FAVORITES_TAB,
@@ -65,7 +65,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_LIST,
-   "Carregar Nucli"
+   "Carrega un nucli"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_LIST,
@@ -73,11 +73,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_CORE_LIST,
-   "Cerca una implementació per a un nucli de libretro. El cercador començarà a buscar en la carpeta que hagis triat per al teu directori de nuclis. En cas de trobar-se en blanc, començarà al directori rael.\nSi el directori de nuclis és un directori, el menú usarà aquest com a carpeta inicial. Pel contrari, si és un directori complet, aquest s'iniciarà a la carpeta on es trobi l'arxiu."
+   "Cerca una implementació d'un nucli de libretro. La ubicació d'inici del navegador depèn de la ruta del Directori de Nuclis. En cas de trobar-se en blanc, començarà al directori arrel.\nSi el Directori de Nuclis és un directori, el menú l'usarà com a carpeta inicial. Altrament, si és una ruta completa, el navegador s'iniciarà a la carpeta on es trobi el fitxer."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_CONTENT_LIST,
-   "Carregar Contingut"
+   "Carrega contingut"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LOAD_CONTENT_LIST,
@@ -85,28 +85,28 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_LOAD_CONTENT_LIST,
-   "Cerca continguts. Per a carregar continguts necessites un 'nucli' i un arxiu de contingut.\nPer a configurar a on comença el menú a cercar-ne, configura el directori de l'explorador d'arxius. Si no està configurat, aquest començará a la rael.\nEl navegador filtrarà extensions per a l'últim nucli triat en 'Carregar nucli', i emprarà aquell nucli quan el contingut sigui carregat."
+   "Cerca continguts. Per a carregar-ne, necessites un «nucli» i un fitxer de contingut.\nPer a configurar a on comença el menú a cercar els continguts, cal definir el «Directori de navegació de fitxers». Si no està configurat, aquest començarà a l'arrel.\nEl navegador filtrarà extensions per a l'últim nucli triat en «Carrega un nucli», i emprarà aquell nucli quan el contingut es carregui."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_DISC,
-   "Carregar Disc"
+   "Carrega un disc"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LOAD_DISC,
-   "Carrega un disc físic multimèdia. Primer hauràs de seleccionar el nucli (Carregar Nucli) a utilitzar amb el disc."
+   "Carrega un disc físic multimèdia. Primer cal seleccionar el nucli (Carrega un nucli) a utilitzar amb el disc."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DUMP_DISC,
-   "Abocar Disc"
+   "Aboca un disc"
    )
 MSG_HASH( /* FIXME Is a specific image format used? Is it determined automatically? User choice? */
    MENU_ENUM_SUBLABEL_DUMP_DISC,
-   "Abocar el disc físic multimèdia a l'emmagatzematge intern. Es guardarà com un arxiu d'imatge."
+   "Aboca un disc físic multimèdia a l'emmagatzematge intern. Es desarà com un fitxer d'imatge."
    )
 #ifdef HAVE_LAKKA
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_EJECT_DISC,
-   "Expulsar disc"
+   "Expulsa el disc"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_EJECT_DISC,
@@ -127,7 +127,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ADD_CONTENT_LIST,
-   "Crea i actualitza les llistes de reproducció escanejant el contingut."
+   "Crea i actualitza les llistes de reproducció escanejant contingut."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHOW_WIMP,
@@ -139,7 +139,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_DISABLE_KIOSK_MODE,
-   "Desactiva el mode quiosc (requereix reiniciar)"
+   "Desactiva el mode quiosc (cal reiniciar)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_DISABLE_KIOSK_MODE,
@@ -151,7 +151,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ONLINE_UPDATER,
-   "Descarrega complements, components i contingut per RetroArch."
+   "Baixa complements, components i contingut per al RetroArch."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY,
@@ -159,11 +159,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY,
-   "Uneix-te o organitza una sessió de joc en línia."
+   "Organitza o uneix-te a una sessió de joc en línia."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS,
-   "Opcions"
+   "Configuració"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SETTINGS,
@@ -179,7 +179,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONFIGURATIONS_LIST,
-   "Arxiu de configuració"
+   "Fitxer de configuració"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONFIGURATIONS_LIST,
@@ -199,53 +199,57 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RESTART_RETROARCH,
-   "Reinicia RetroArch."
+   "Reinicia el RetroArch."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QUIT_RETROARCH,
-   "Surt"
+   "Tanca"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_QUIT_RETROARCH,
-   "Tanca RetroArch. La configuració serà desada en sortir."
+   "Tanca el RetroArch. La configuració es desarà en sortir."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_QUIT_RETROARCH_NOSAVE,
-   "Tanca RetroArch. La configuració serà desada en sortir."
+   "Tanca el RetroArch. La configuració no es desarà en sortir."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_QUIT_RETROARCH,
+   "Tanca el RetroArch. Matar el programa de manera forçada (amb SIGKILL, etc.) finalitzarà el RetroArch sense desar la configuració. En sistemes Unix, SIGINT/SIGTERM permet un tancament net, el que inclou que es desi la configuració si està activat."
    )
 
 /* Main Menu > Load Core */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE,
-   "Descarrega un nucli"
+   "Baixa un nucli"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DOWNLOAD_CORE,
-   "Descarrega i instal·la un nucli de l'actualitzador en línia."
+   "Baixa i instal·la un nucli des de l'actualitzador en línia."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SIDELOAD_CORE_LIST,
-   "Instal·la o Restaura un Nucli"
+   "Instal·la o restaura un nucli"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SIDELOAD_CORE_LIST,
-   "Instal·la o restaura un nucli des de la carpeta 'Downloads'."
+   "Instal·la o restaura un nucli des del directori «Baixades»."
    )
 MSG_HASH( /* FIXME Maybe add a description? */
    MENU_ENUM_LABEL_VALUE_START_VIDEO_PROCESSOR,
-   "Iniciar Processador de Vídeo"
+   "Inicia el processador de vídeo"
    )
 MSG_HASH( /* FIXME Maybe add a description? */
    MENU_ENUM_LABEL_VALUE_START_NET_RETROPAD,
-   "Iniciar RetroPad Remot"
+   "Inicia un RetroPad remot"
    )
 
 /* Main Menu > Load Content */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FAVORITES,
-   "Directori Inicial"
+   "Directori d'inici"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DOWNLOADED_FILE_DETECT_CORE_LIST,
@@ -253,11 +257,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OPEN_ARCHIVE,
-   "Explora un fitxer comprimit"
+   "Explora el fitxer comprimit"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_ARCHIVE,
-   "Carrega un fitxer comprimit"
+   "Carrega el fitxer comprimit"
    )
 
 /* Main Menu > Load Content > Playlists */
@@ -268,7 +272,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_GOTO_FAVORITES,
-   "El contingut afegit a 'Favorits' apareixerà aquí."
+   "El contingut afegit a «Favorits» apareixerà aquí."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_GOTO_MUSIC,
@@ -300,7 +304,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_GOTO_EXPLORE,
-   "Explora tots els continguts que coincideixin amb la base de dades mitjançant una interfície de cerca categoritzada."
+   "Navega pels continguts que coincideixin amb la base de dades mitjançant una interfície de cerca categoritzada."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_GOTO_CONTENTLESS_CORES,
@@ -308,14 +312,14 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_GOTO_CONTENTLESS_CORES,
-   "Els cors instal·lats que poden operar sense carregar contingut apareixeran aquí."
+   "Aquí apareixeran els nuclis instal·lats que poden operar sense carregar contingut."
    )
 
 /* Main Menu > Online Updater */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_UPDATER_LIST,
-   "Descarregador de nuclis"
+   "Baixador de nuclis"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UPDATE_INSTALLED_CORES,
@@ -327,27 +331,27 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SWITCH_INSTALLED_CORES_PFD,
-   "Canviar els Nuclis a la versió de Play Store"
+   "Canvia els nuclis a les versions de Play Store"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SWITCH_INSTALLED_CORES_PFD,
-   "Substitueix tots els nuclis heretats i instal·lats manualment per les darreres versions de Play Store, quan estiguin disponibles."
+   "Substitueix tots els nuclis heretats i instal·lats manualment per les darreres versions de la Play Store, si hi són disponibles."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAILS_UPDATER_LIST,
-   "Actualitzador de Miniatures"
+   "Actualitzador de miniatures"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_THUMBNAILS_UPDATER_LIST,
-   "Descarrega el paquet complet de miniatures per al sistema seleccionat."
+   "Baixa el paquet complet de miniatures per al sistema seleccionat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PL_THUMBNAILS_UPDATER_LIST,
-   "Actualitzador de Miniatures de Llistes de Reproducció"
+   "Actualitzador de miniatures de llistes de reproducció"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_PL_THUMBNAILS_UPDATER_LIST,
-   "Descarrega les miniatures de les entrades de la llista de reproducció seleccionada."
+   "Baixa les miniatures de les entrades de la llista de reproducció seleccionada."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE_CONTENT,
@@ -355,15 +359,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DOWNLOAD_CORE_CONTENT,
-   "Descarrega contingut gratuït pel nucli seleccionat."
+   "Baixa contingut gratuït per al nucli seleccionat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DOWNLOAD_CORE_SYSTEM_FILES,
-   "Descarregador d'arxius de sistema dels nuclis"
+   "Baixador de fitxers de sistema dels nuclis"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DOWNLOAD_CORE_SYSTEM_FILES,
-   "Descarrega fitxers del sistema auxiliars necessaris per a un òptim/correcte funcionament."
+   "Baixa fitxers del sistema auxiliars necessaris per a un funcionament correcte o òptim del nucli."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UPDATE_CORE_INFO_FILES,
@@ -418,7 +422,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DISC_INFORMATION,
-   "Veure informació sobre els discs multimèdia inserits."
+   "Mostra la informació dels discs multimèdia inserits."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETWORK_INFORMATION,
@@ -426,7 +430,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NETWORK_INFORMATION,
-   "Mostra l'interfície(s) de xarxa i les IP associades."
+   "Mostra la interfície de xarxa i les adreces IP associades."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFORMATION,
@@ -438,11 +442,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DATABASE_MANAGER,
-   "Gestor de base de dades"
+   "Gestor de bases de dades"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DATABASE_MANAGER,
-   "Veure bases de dades."
+   "Mostra les bases de dades."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CURSOR_MANAGER,
@@ -493,15 +497,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFO_REQUIRED_HW_API,
-   "APIs de gràfics requerides"
+   "API de gràfics requerides"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFO_CORE_PATH,
-   "Camí complet"
+   "Ruta completa"
 )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFO_SAVESTATE_SUPPORT_LEVEL,
-   "Suport a estats desats"
+   "Compatibilitat amb el desament"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFO_SAVESTATE_DISABLED,
@@ -513,19 +517,31 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFO_SAVESTATE_SERIALIZED,
-   "Amb sèrie (Desar/Carregar, Rebobinar)"
+   "Serialitzat (Desar/Carregar, Rebobinar)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INFO_SAVESTATE_DETERMINISTIC,
-   "Determinista (Desa/Carrega, Rebobina, Avança, Netplay)"
+   "Determinista (Desar/Carregar, Rebobinar, Avançar, Joc en línia)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_INFO_FIRMWARE,
+   "Microprogramari"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_INFO_FIRMWARE_IN_CONTENT_DIRECTORY,
+   "- Nota: «Els fitxers del sistema són al directori del contingut» es troba activat."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_INFO_FIRMWARE_PATH,
+   "- S'està mirant en: %s"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MISSING_REQUIRED,
-   "Falta, requerida:"
+   "Manca, requerit:"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MISSING_OPTIONAL,
-   "Falta, opcional:"
+   "Manca, opcional:"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PRESENT_REQUIRED,
@@ -537,27 +553,27 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_LOCK,
-   "Bloqueja el nucli instal·lat"
+   "Bloca el nucli instal·lat"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_LOCK,
-   "Evita la modificació del nucli instal·lat actualment. Es pot utilitzar per evitar actualitzacions no desitjades quan el contingut requereix una versió del nucli específica (per exemple, conjunts de ROM d'arcade)."
+   "Evita la modificació del nucli instal·lat actualment. Es podria utilitzar per a evitar actualitzacions no desitjades quan el contingut requereix una versió específica del nucli (p. ex., conjunts de ROM d'arcade)."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_SET_STANDALONE_EXEMPT,
-   "Exclou del menú 'Nuclis sense continguts'"
+   "Exclou del menú «Nuclis sense continguts»"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_SET_STANDALONE_EXEMPT,
-   "Prevín que el nucli sigui mostrat a la secció 'Nuclis sense continguts'. Només s'aplica quan el mode de vídeo estigui configurat com a 'Personalitzat'."
+   "Evita que el nucli es mostri a la secció «Nuclis sense continguts». Només s'aplica quan el mode de visualització es troba configurat com a «Personalitzat»."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_DELETE,
-   "Eliminar nucli"
+   "Elimina el nucli"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_DELETE,
-   "Eliminar aquest nucli del disc."
+   "Elimina aquest nucli del disc."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_CREATE_BACKUP,
@@ -565,7 +581,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_CREATE_BACKUP,
-   "Crea una còpia de seguretat arxivada del nucli instal·lat actualment."
+   "Crea una còpia de seguretat del nucli instal·lat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_RESTORE_BACKUP_LIST,
@@ -573,15 +589,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_RESTORE_BACKUP_LIST,
-   "Instal·la una versió anterior del nucli des d'una llista de còpies de seguretat arxivades."
+   "Instal·la una versió anterior del nucli des d'una llista de còpies de seguretat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_DELETE_BACKUP_LIST,
-   "Suprimeix la còpia de seguretat"
+   "Elimina la còpia de seguretat"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_DELETE_BACKUP_LIST,
-   "Eliminar un fitxer de la llista de còpies de seguretat arxivades."
+   "Elimina un fitxer de la llista de còpies de seguretat."
    )
 
 /* Main Menu > Information > System Information */
@@ -592,7 +608,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_RETROARCH_VERSION,
-   "Versió de RetroArch"
+   "Versió del RetroArch"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_GIT_VERSION,
@@ -624,15 +640,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FRONTEND_IDENTIFIER,
-   "Identificador de la interfície"
+   "Identificador del processador d'accés"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FRONTEND_OS,
-   "Sistema operatiu de la interfície"
+   "Sistema operatiu del processador d'accés"
    )
 MSG_HASH( /* FIXME Maybe add a description? */
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_RETRORATING_LEVEL,
-   "Nivell de RetroRating"
+   "Nivell del RetroRating"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_POWER_SOURCE,
@@ -652,167 +668,195 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_DISPLAY_METRIC_DPI,
-   "Punts per polzada de la pantalla"
+   "Densitat de píxels de la pantalla"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_LIBRETRODB_SUPPORT,
-   "Suport de LibretroDB"
+   "Compatibilitat amb LibretroDB"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_OVERLAY_SUPPORT,
-   "Suport de recobriment"
+   "Compatibilitat amb superposicions"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_COMMAND_IFACE_SUPPORT,
-   "Suport a la interfície de comandaments"
+   "Compatibilitat amb interfície d'ordres"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_NETWORK_COMMAND_IFACE_SUPPORT,
-   "Suport a la interfície de comandaments de xarxa"
+   "Compatibilitat amb interfície d'ordres de xarxa"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_NETWORK_REMOTE_SUPPORT,
-   "Suport del controlador de xarxa"
+   "Compatibilitat amb controlador de xarxa"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_COCOA_SUPPORT,
-   "Suport de Cocoa"
+   "Compatibilitat amb Cocoa"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_RPNG_SUPPORT,
-   "Suport de PNG (RPNG)"
+   "Compatibilitat amb PNG (RPNG)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_RJPEG_SUPPORT,
-   "Suport de JPEG (RJPEG)"
+   "Compatibilitat amb JPEG (RJPEG)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_RBMP_SUPPORT,
-   "Suport de BMP (RBMP)"
+   "Compatibilitat amb BMP (RBMP)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_RTGA_SUPPORT,
-   "Suport de TGA (RTGA)"
+   "Compatibilitat amb TGA (RTGA)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_SDL_SUPPORT,
-   "Suport de SDL 1.2"
+   "Compatibilitat amb SDL 1.2"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_SDL2_SUPPORT,
-   "Suport de SDL 2"
+   "Compatibilitat amb SDL 2"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_D3D8_SUPPORT,
+   "Compatibilitat amb el Direct3D 8"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_D3D9_SUPPORT,
+   "Compatibilitat amb el Direct3D 9"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_D3D10_SUPPORT,
+   "Compatibilitat amb el Direct3D 10"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_D3D11_SUPPORT,
+   "Compatibilitat amb el Direct3D 11"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_D3D12_SUPPORT,
+   "Compatibilitat amb el Direct3D 12"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_GDI_SUPPORT,
+   "Compatibilitat amb GDI"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_VULKAN_SUPPORT,
-   "Suport de Vulkan"
+   "Compatibilitat amb Vulkan"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_METAL_SUPPORT,
-   "Suport de Metal"
+   "Compatibilitat amb Metal"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_OPENGL_SUPPORT,
-   "Suport d'OpenGL"
+   "Compatibilitat amb OpenGL"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_OPENGLES_SUPPORT,
-   "Suport d'OpenGL ES"
+   "Compatibilitat amb OpenGL ES"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_THREADING_SUPPORT,
-   "Suport multifil"
+   "Compatibilitat amb multifil"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_KMS_SUPPORT,
-   "Suport de KMS/EGL"
+   "Compatibilitat amb KMS/EGL"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_UDEV_SUPPORT,
-   "Suport d'udev"
+   "Compatibilitat amb udev"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_OPENVG_SUPPORT,
-   "Suport d'OpenVG"
+   "Compatibilitat amb OpenVG"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_EGL_SUPPORT,
-   "Suport d'EGL"
+   "Compatibilitat amb EGL"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_X11_SUPPORT,
-   "Suport d'X11"
+   "Compatibilitat amb X11"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_WAYLAND_SUPPORT,
-   "Suport de Wayland"
+   "Compatibilitat amb Wayland"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_XVIDEO_SUPPORT,
-   "Suport d'XVideo"
+   "Compatibilitat amb XVideo"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_ALSA_SUPPORT,
-   "Suport d'ALSA"
+   "Compatibilitat amb ALSA"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_OSS_SUPPORT,
-   "Suport d'OSS"
+   "Compatibilitat amb OSS"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_OPENAL_SUPPORT,
-   "Suport d'OpenAL"
+   "Compatibilitat amb OpenAL"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_OPENSL_SUPPORT,
-   "Suport d'OpenSL"
+   "Compatibilitat amb OpenSL"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_RSOUND_SUPPORT,
-   "Suport de RSound"
+   "Compatibilitat amb RSound"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_ROARAUDIO_SUPPORT,
-   "Suport de RoarAudio"
+   "Compatibilitat amb RoarAudio"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_JACK_SUPPORT,
-   "Suport de JACK"
+   "Compatibilitat amb JACK"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_PULSEAUDIO_SUPPORT,
-   "Suport de PulseAudio"
+   "Compatibilitat amb PulseAudio"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_PIPEWIRE_SUPPORT,
+   "Suport de PipeWire"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_COREAUDIO_SUPPORT,
-   "Suport de CoreAudio"
+   "Compatibilitat amb CoreAudio"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_COREAUDIO3_SUPPORT,
-   "CoreAudio V3 implementat"
+   "Compatibilitat amb CoreAudio V3"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_DSOUND_SUPPORT,
-   "DirectSound implementat"
+   "Compatibilitat amb DirectSound"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_WASAPI_SUPPORT,
-   "WASAPI implementat"
+   "Compatibilitat amb WASAPI"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_XAUDIO2_SUPPORT,
-   "XAudio2 implementat"
+   "Compatibilitat amb XAudio2"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_ZLIB_SUPPORT,
-   "zlib implementat"
+   "Compatibilitat amb zlib"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_7ZIP_SUPPORT,
-   "7zip implementat"
+   "Compatibilitat amb 7zip"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_DYLIB_SUPPORT,
-   "Biblioteques dinàmiques implementades"
+   "Compatibilitat amb biblioteques dinàmiques"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_DYNAMIC_SUPPORT,
@@ -820,51 +864,55 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_CG_SUPPORT,
-   "Cg implementat"
+   "Compatibilitat amb Cg"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_GLSL_SUPPORT,
-   "GLSL implementat"
+   "Compatibilitat amb GLSL"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_HLSL_SUPPORT,
-   "GLSL implementat"
+   "Compatibilitat amb GLSL"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_SDL_IMAGE_SUPPORT,
-   "Imatge SDL implementat"
+   "Compatibilitat amb imatges SDL"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FFMPEG_SUPPORT,
-   "FFmpeg implementat"
+   "Compatibilitat amb FFmpeg"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_MPV_SUPPORT,
-   "mpv implementat"
+   "Compatibilitat amb mpv"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_CORETEXT_SUPPORT,
-   "CoreText implementat"
+   "Compatibilitat amb CoreText"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FREETYPE_SUPPORT,
-   "FreeType implementat"
+   "Compatibilitat amb FreeType"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_STB_TRUETYPE_SUPPORT,
-   "STB TrueType implementat"
+   "Compatibilitat amb STB TrueType"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_NETPLAY_SUPPORT,
-   "Joc en xarxa (Peer-to-Peer) implementat"
+   "Compatibilitat amb el joc en xarxa (Peer-to-Peer)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_V4L2_SUPPORT,
-   "Video4Linux2 implementat"
+   "Compatibilitat amb Video4Linux2"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_SSL_SUPPORT,
+   "Compatibilitat amb SSL"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_LIBUSB_SUPPORT,
-   "libusb implementat"
+   "Compatibilitat amb libusb"
    )
 
 /* Main Menu > Information > Database Manager */
@@ -926,7 +974,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_GAMEPLAY,
-   "Joc"
+   "Tipus de joc"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_NARRATIVE,
@@ -965,8 +1013,12 @@ MSG_HASH(
    "Origen"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RDB_ENTRY_FRANCHISE,
+   "Franquícia"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_TGDB_RATING,
-   "Valoració TGDB"
+   "Valoració de TGDB"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_FAMITSU_MAGAZINE_RATING,
@@ -974,11 +1026,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_EDGE_MAGAZINE_REVIEW,
-   "Valoració de la revista Edge"
+   "Revisió de la revista Edge"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_EDGE_MAGAZINE_RATING,
-   "Puntuació de la revista Edge"
+   "Valoració de la revista Edge"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_EDGE_MAGAZINE_ISSUE,
@@ -1010,7 +1062,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_ENHANCEMENT_HW,
-   "Hardware de millora"
+   "Maquinari de millora"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_CERO_RATING,
@@ -1022,22 +1074,22 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_ANALOG,
-   "Control analògic compatible"
+   "Compatible amb controls analògics"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_RUMBLE,
-   "Vibració suportada"
+   "Compatible amb vibració"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RDB_ENTRY_COOP,
-   "Joc cooperatiu implementat"
+   "Compatible amb el joc cooperatiu"
    )
 
 /* Main Menu > Configuration File */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONFIGURATIONS,
-   "Carregar configuració"
+   "Carrega configuració"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONFIGURATIONS,
@@ -1045,7 +1097,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVE_CURRENT_CONFIG,
-   "Desar la configuració present"
+   "Desa la configuració actual"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_CURRENT_CONFIG,
@@ -1053,19 +1105,19 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVE_NEW_CONFIG,
-   "Desar nova configuració"
+   "Desa una configuració nova"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_NEW_CONFIG,
-   "Desa la configuració actual en un nou fitxer."
+   "Desa la configuració actual en un fitxer nou."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESET_TO_DEFAULT_CONFIG,
-   "Restaurar als valors per defecte"
+   "Restaura els valors predefinits"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RESET_TO_DEFAULT_CONFIG,
-   "Reinicia la configuració actual als valors predeterminats."
+   "Restableix la configuració actual als valors predeterminats."
    )
 
 /* Main Menu > Help */
@@ -1103,7 +1155,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BASIC_MENU_CONTROLS_QUIT,
-   "Surt"
+   "Sortir"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BASIC_MENU_CONTROLS_TOGGLE_KEYBOARD,
@@ -1118,7 +1170,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DRIVER_SETTINGS,
-   "Canviar els controladors usats pel sistema."
+   "Canvia els controladors usats pel sistema."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SETTINGS,
@@ -1126,19 +1178,23 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SETTINGS,
-   "Canviar opcions de sortida de vídeo."
+   "Canvia les opcions de sortida de vídeo."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_SETTINGS,
    "Àudio"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_AUDIO_SETTINGS,
+   "Canvia les opcions d'entrada i sortida de l'àudio."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_SETTINGS,
-   "Dispositius de joc"
+   "Entrada"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_SETTINGS,
-   "Canviar opcions de comandaments, teclat i ratolí."
+   "Canvia les opcions de comandaments, teclat i ratolí."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LATENCY_SETTINGS,
@@ -1146,7 +1202,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LATENCY_SETTINGS,
-   "Canviar opcions relatives a la latència del vídeo, l'àudio i control."
+   "Canvia les opcions relatives a la latència del vídeo, l'àudio i l'entrada."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_SETTINGS,
@@ -1154,7 +1210,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_SETTINGS,
-   "Canviar opcions del nucli."
+   "Canvia les opcions del nucli."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONFIGURATION_SETTINGS,
@@ -1162,7 +1218,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONFIGURATION_SETTINGS,
-   "Canvia les opcions per defecte dels arxius de configuració."
+   "Canvia les opcions predefinides dels fitxers de configuració."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVING_SETTINGS,
@@ -1170,23 +1226,95 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVING_SETTINGS,
-   "Canvia les configuracions de desament."
+   "Canvia les opcions de desament."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_SETTINGS,
    "Sincronització al núvol"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_SETTINGS,
+   "Canvia les opcions de sincronització al núvol."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_ENABLE,
    "Activa la sincronització al núvol"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_ENABLE,
+   "Prova de sincronitzar les configuracions, l'sram i els estats a un proveïdor d'emmagatzematge al núvol."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_DESTRUCTIVE,
+   "Sincronització al núvol destructiva"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_SYNC_SAVES,
+   "Sincronitza: Desaments/Estats"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_SYNC_CONFIGS,
+   "Sincronitza: Fitxers de configuració"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_SYNC_THUMBS,
+   "Sincronitza: Miniatures"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_SYNC_SYSTEM,
+   "Sincronitza: Fitxers del sistema"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_SYNC_SAVES,
+   "En activar-ho, els desaments/estats se sincronitzaran amb el núvol."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_SYNC_CONFIGS,
+   "En activar-ho, els fitxers de configuració se sincronitzaran amb el núvol."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_SYNC_THUMBS,
+   "En activar-ho, les imatges de miniatures se sincronitzaran amb el núvol. No es recomana, en general, excepte per a col·leccions grans de miniatures personalitzades. És una millor opció el baixador de miniatures."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_SYNC_SYSTEM,
+   "En activar-ho, els fitxers del sistema se sincronitzaran amb el núvol. Això pot augmentar substancialment el temps de sincronització; utilitzeu-ho amb compte."
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_DESTRUCTIVE,
+   "En desactivar-ho, els fitxers es mouen a una carpeta de còpia de seguretat abans de sobreescriure's o eliminar-se."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_DRIVER,
+   "Rerefons de la sincronització al núvol"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_DRIVER,
+   "Quin protocol de xarxa de l'emmagatzematge al núvol utilitzar."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_URL,
+   "URL de l'emmagatzematge al núvol"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_URL,
+   "L'URL del punt d'entrada de l'API del servei d'emmagatzematge al núvol."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_USERNAME,
    "Nom d’usuari"
    )
 MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_USERNAME,
+   "El nom d'usuari del teu compte d'emmagatzematge al núvol."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CLOUD_SYNC_PASSWORD,
    "Contrasenya"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CLOUD_SYNC_PASSWORD,
+   "La contrasenya del teu compte d'emmagatzematge al núvol."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOGGING_SETTINGS,
@@ -1198,39 +1326,95 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_FILE_BROWSER_SETTINGS,
-   "Navegador d'Arxius"
+   "Navegador de fitxers"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_FILE_BROWSER_SETTINGS,
+   "Canvia la configuració del navegador de fitxers."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_CONFIG,
-   "Arxiu de configuració."
+   "Fitxer de configuració."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_COMPRESSED_ARCHIVE,
-   "Arxiu comprimit."
+   "Fitxer comprimit."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_RECORD_CONFIG,
+   "Fitxer de configuració de l'enregistrament."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_CURSOR,
+   "Fitxer de cursors de la base de dades."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_CONFIG,
-   "Arxiu de configuració."
+   "Fitxer de configuració."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_SHADER_PRESET,
+   "Fitxer predefinit del shader."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_SHADER,
    "Fitxer del shader."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_REMAP,
+   "Fitxer de reassignació del controlador."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_CHEAT,
    "Fitxer de trucs."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_OVERLAY,
+   "Fitxer de superposició."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_RDB,
+   "Fitxer de base de dades."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_FONT,
+   "Fitxer de tipografia TrueType."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_PLAIN_FILE,
    "Fitxer de text sense format."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_MOVIE_OPEN,
+   "Vídeo. Selecciona-ho per a obrir aquest fitxer amb el reproductor."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_MUSIC_OPEN,
+   "Música. Selecciona-ho per a obrir aquest fitxer amb el reproductor."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_FILE_BROWSER_IMAGE,
-   "Arxiu d'imatge."
+   "Fitxer d'imatge."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_IMAGE_OPEN_WITH_VIEWER,
+   "Imatge. Selecciona-ho per a obrir aquest fitxer amb el visor d'imatges."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_CORE_SELECT_FROM_COLLECTION,
+   "Nucli Libretro. Seleccionar-ho associarà aquest nucli amb el joc."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_CORE,
+   "Nucli Libretro. Selecciona el fitxer perquè el RetroArch carregui aquest nucli."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_FILE_BROWSER_DIRECTORY,
+   "Directori. Seleccioneu-ho per a obrir aquest directori."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FRAME_THROTTLE_SETTINGS,
-   "Ajustos dels Fotogrames"
+   "Regulador de fotogrames"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_FRAME_THROTTLE_SETTINGS,
@@ -1246,15 +1430,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ONSCREEN_DISPLAY_SETTINGS,
-   "Visualitzacions en Pantalla"
+   "Visualització en pantalla"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ONSCREEN_DISPLAY_SETTINGS,
-   "Canvia les opcions de capes de visualitzacions gràfiques de controls, notificacions del sistema i disposició de vídeo a la pantalla."
+   "Canvia les superposicions de visualització i del teclat, i les opcions de notificacions en pantalla."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_USER_INTERFACE_SETTINGS,
-   "Interfície d'Usuari"
+   "Interfície d'usuari"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_USER_INTERFACE_SETTINGS,
@@ -1266,7 +1450,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AI_SERVICE_SETTINGS,
-   "Canvia les opcions del servei d'IA (traducció/text a veu/etc)."
+   "Canvia les opcions del servei d'IA (traducció/text a veu/etc.)."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ACCESSIBILITY_SETTINGS,
@@ -1306,7 +1490,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_PLAYLIST_SETTINGS,
-   "Canvia les opcions de la llista de reproducció."
+   "Canvia les opcions de les llistes de reproducció."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_USER_SETTINGS,
@@ -1322,17 +1506,17 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DIRECTORY_SETTINGS,
-   "Canvia els directoris predeterminats per als arxius."
+   "Canvia els directoris predefinits on es troben els fitxers."
    )
 
 /* Core option category placeholders for icons */
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MAPPING_SETTINGS,
-   "Mapatge"
+   "Assignacions"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MEDIA_SETTINGS,
-   "Mitjà"
+   "Multimèdia"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PERFORMANCE_SETTINGS,
@@ -1356,7 +1540,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TIMING_SETTINGS,
-   "Temps"
+   "Temporalització"
    )
 
 #ifdef HAVE_MIST
@@ -1370,15 +1554,59 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_DRIVER,
-   "Dispositius de joc"
+   "Entrada"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_DRIVER,
-   "Selecciona el controlador de vídeo que es farà servir. Alguns controladors poden forçar l'ús d'un altre distint."
+   "Controlador d'entrada a utilitzar. Alguns controladors de vídeo en forcen un diferent."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_UDEV,
+   "El controlador udev llegeix els esdeveniments evdev per a la compatibilitat del teclat. També és compatible amb les trucades del teclat, ratolí i panells tàctils.\nDe manera predefinida en la majoria de les distribucions, els nodes /dev/input són només per a root (mode 600). Pots definir una regla udev que els faci accessibles a altres usuaris."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_LINUXRAW,
+   "El controlador d'entrada linuxraw necessita un TTY actiu. Els esdeveniments de teclat es llegeixen directament des de TTY, el què ho fa més senzill, però no tan flexible com l'udev. Els ratolins, etc. no són compatibles de cap de manera. Aquest controlador utilitza l'antiga API de palanques de control (/dev/input/js*)."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_INPUT_DRIVER_NO_DETAILS,
+   "Controlador d'entrada. El controlador de vídeo podria forçar-ne un altre diferent."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_JOYPAD_DRIVER,
    "Comandament"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_JOYPAD_DRIVER,
+   "Controlador de comandament a utilitzar (cal reiniciar)."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_DINPUT,
+   "Controlador de comandaments DirectInput."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_HID,
+   "Controlador de dispositiu d'interfície humana de baix nivell."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_LINUXRAW,
+   "Controlador Linux cru, utilitza l'antiga API de palanques de control. Fes servir millor udev."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_PARPORT,
+   "Controlador Linux per a comandaments connectats a un port paral·lel mitjançant adaptadors especials."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_SDL,
+   "Controlador de comandament basat en biblioteques SDL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_UDEV,
+   "Controlador de comandament amb interfície udev, recomanat en general. Utilitza l'API recent de palanques de control evdev. És compatible amb la connexió en calent i la retroacció forçada.\nDe manera predefinida en la majoria de les distribucions, els nodes /dev/input són només per a root (mode 600). Pots definir una regla udev que els faci accessibles a altres usuaris."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_JOYPAD_DRIVER_XINPUT,
+   "Controlador de comandaments XInput. Majorment, per a comandaments XBox."
    )
 
 MSG_HASH(
@@ -1390,8 +1618,96 @@ MSG_HASH(
    "Controlador de vídeo que es farà servir."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL1,
+   "Controlador OpenGL 1.x. Versió mínima requerida: OpenGL 1.1. No és compatible amb els shaders. Millor fes servir els últims controladors OpenGL si és possible."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL,
+   "Controlador OpenGL 2.x. Aquest controlador permet que s'utilitzin els nuclis libretro GL a més dels nuclis de renderitzat per programari. Versió mínima requerida: OpenGL 2.0 o OpenGLES 2.0. És compatible amb el format de shaders GLSL. Millor fes servir el controlador glcore si és possible."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GL_CORE,
+   "Controlador OpenGL 3.x. Aquest controlador permet que s'utilitzin els nuclis libretro GL a més dels nuclis de renderitzat per programari. Versió mínima requerida: OpenGL 3.2 o OpenGLES 3.0+. És compatible amb el format de shaders Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_VULKAN,
+   "Controlador Vulkan. Aquest controlador permet que s'utilitzin els nuclis libretro Vulkan a més dels nuclis de renderitzat per maquinari. Versió mínima requerida: Vulkan 1.0. És compatible amb els shaders HDR i Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_SDL1,
+   "Controlador de renderitzat per programari SDL 1.2. Es considera que el seu rendiment no és l'òptim. Considera fer-lo servir només com a últim recurs."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_SDL2,
+   "Controlador de renderitzat per programari SDL 2. El rendiment de les implementacions del nucli de renderitzat per programari libretro depèn de la teva implementació de la plataforma SDL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_METAL,
+   "Controlador Metal per a plataformes Apple. És compatible amb el format de shaders Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D8,
+   "Controlador Direct3D 8 sense compatibilitat amb els shaders."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D9_CG,
+   "Controlador Direct3D 9 amb compatibilitat amb l'antic format de shaders Cg."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D9_HLSL,
+   "Controlador Direct3D 9 amb compatibilitat amb el format de shaders HLSL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D10,
+   "Controlador Direct3D 10 amb compatibilitat amb el format de shaders Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D11,
+   "Controlador Direct3D 11 amb compatibilitat amb HDR i amb el format de shaders Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_D3D12,
+   "Controlador Direct3D 12 amb compatibilitat amb HDR i amb el format de shaders Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_DISPMANX,
+   "Controlador DispmanX. Utilitza l'API DispmanX per al Videocore IV GPU a les Raspberry Pi 0..3. Sense compatibilitat amb superposicions ni shaders."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_CACA,
+   "Controlador LibCACA. Produeix una eixida amb caràcters en compte d'amb gràfics. No es recomana per a l'ús pràctic."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_EXYNOS,
+   "Un controlador de vídeo Exynos de baix nivell que utilitza el bloc G2D del SoC de Samsung Exynos per a les operacions blit. El rendiment dels nuclis renderitzats per programari hauria de ser òptim."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_DRM,
+   "Controlador de vídeo DRM simple. És un controlador de vídeo de baix nivell que utilitza libdrm per a fer l'escalat per maquinari, fent servir superposicions de la GPU."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_SUNXI,
+   "Un controlador de vídeo Sunxi de baix nivell que utilitza el bloc G2D dels SoC Allwinner."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_WIIU,
+   "Controlador de la Wii U. És compatible amb els shaders Slang."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_SWITCH,
+   "Controlador de la Switch. És compatible amb el format de shaders GLSL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_VG,
+   "Controlador OpenVG. Utilitza l'API de gràfics vectorials 2D accelerats per maquinari OpenVG."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_GDI,
+   "Controlador GDI. Utilitza una interfície de Windows antiga. No es recomana."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_DRIVER_NO_DETAILS,
-   "Controlador actual de vídeo."
+   "Controlador de vídeo actual."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_DRIVER,
@@ -1401,10 +1717,74 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_DRIVER,
    "Controlador d'àudio que es farà servir."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_RSOUND,
+   "Controlador RSound per a sistemes d'àudio en xarxa."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_OSS,
+   "Controlador antic Open Sound System."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_ALSA,
+   "Controlador predefinit ALSA."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_ALSATHREAD,
+   "Controlador ALSA amb compatibilitat amb multifil."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_TINYALSA,
+   "Controlador ALSA implementat sense dependències."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_ROAR,
+   "Controlador del sistema de so RoarAudio."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_AL,
+   "Controlador OpenAL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_SL,
+   "Controlador OpenSL."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_DSOUND,
+   "Controlador DirectSound. El DirectSound s'utilitza principalment per a Windows 95 i Windows XP."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_WASAPI,
+   "Controlador de l'API del Windwos Audio Session (WASAPI). El WASAPI s'utilitza principalment per a Windows 7 i superiors."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_PULSE,
+   "Controlador PulseAudio. Si el sistema utilitza PulseAudio, assegura't de fer servir aquest controlador en compte de, p. ex., l'ALSA."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_PIPEWIRE,
+   "Controlador PipeWire. Si el sistema utilitza PipeWire, assegura't de fer servir aquest controlador en compte de, p. ex., el PulseAudio."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_JACK,
+   "Controlador del Jack Audio Connection Kit (JACK)."
+   )
 #ifdef HAVE_MICROPHONE
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MICROPHONE_DRIVER,
    "Micròfon"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MICROPHONE_DRIVER,
+   "Controlador de micròfon que es farà servir."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MICROPHONE_RESAMPLER_DRIVER,
+   "Remostreig del micròfon"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MICROPHONE_RESAMPLER_DRIVER,
+   "Controlador del remostreig del micròfon que es farà servir."
    )
 #endif
 MSG_HASH(
@@ -1413,7 +1793,19 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_RESAMPLER_DRIVER,
-   "Controlador de remostreig d'àudio a usar."
+   "Controlador de remostreig d'àudio que es farà servir."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_RESAMPLER_DRIVER_SINC,
+   "Implementació de sinus cardinal (Windowed-Sinc)."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_RESAMPLER_DRIVER_CC,
+   "Implementació de cosinus de convolució (Convoluted Cosine)."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_RESAMPLER_DRIVER_NEAREST,
+   "Implementació de remostreig més propera. Aquest remostreig ignora l'opció de qualitat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CAMERA_DRIVER,
@@ -1421,19 +1813,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CAMERA_DRIVER,
-   "Tria el controlador de càmera que es farà servir."
+   "Controlador de càmera que es farà servir."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_BLUETOOTH_DRIVER,
    "Controlador Bluetooth que es farà servir."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_WIFI_DRIVER,
-   "Connexió sense fils Wi-Fi"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_WIFI_DRIVER,
-   "Tria el controlador Wi-Fi que es farà servir."
+   "Controlador Wi-Fi que es farà servir."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOCATION_DRIVER,
@@ -1441,11 +1829,31 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_LOCATION_DRIVER,
-   "Tria el controlador de localització que es farà servir."
+   "Controlador d'ubicació que es farà servir."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_DRIVER,
    "Menú"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_MENU_DRIVER,
+   "Controlador de menú que es farà servir (cal reiniciar)."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_MENU_DRIVER_XMB,
+   "L'XMB és una interfície gràfica per al RetroArch que s'assembla al menú d'una consola de 7a generació. És compatible amb les mateixes funcions que l'Ozone."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_MENU_DRIVER_OZONE,
+   "L'Ozone és la interfície gràfica predefinida del RetroArch a la majoria dels dispositius. És optimitzada per a navegar-hi amb un comandament."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_MENU_DRIVER_RGUI,
+   "L'RGUI és una interfície gràfica simple integrada al RetroArch. És el controlador de menú que menys requisits de rendiment demana, i es pot utilitzar en pantalles de resolució baixa."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_MENU_DRIVER_MATERIALUI,
+   "En dispositius mòbils, el RetroArch utilitza de manera predefinida la interfície mòbil, MaterialUI. Aquesta s'ha dissenyat per a les pantalles tàctils i els dispositius senyaladors, com ara ratolins o trackballs."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RECORD_DRIVER,
@@ -1453,22 +1861,22 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RECORD_DRIVER,
-   "Tria el controlador d'enregistrament que es farà servir."
+   "Controlador d'enregistrament que es farà servir."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MIDI_DRIVER,
-   "Tria el tipus de controlador MIDI que es farà servir."
+   "Controlador MIDI que es farà servir."
    )
 
 /* Settings > Video */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCHRES_SETTINGS,
-   "SwitchRes per a CRT's"
+   "SwitchRes per a monitors CRT"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCHRES_SETTINGS,
-   "Crea senyals de vídeo de baixa resolució per a pantalles de tub de raigs catòdics (CRT)."
+   "Emet senyals de vídeo natius de baixa resolució per a pantalles de tub de raigs catòdics (CRT)."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_OUTPUT_SETTINGS,
@@ -1480,7 +1888,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FULLSCREEN_MODE_SETTINGS,
-   "Mode Pantalla Sencera"
+   "Mode de pantalla completa"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FULLSCREEN_MODE_SETTINGS,
@@ -1500,7 +1908,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SCALING_SETTINGS,
-   "Canvia les opcions de mida de l'escalat d'imatge."
+   "Canvia les opcions de l'escalat del vídeo."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_HDR_SETTINGS,
@@ -1516,40 +1924,208 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SUSPEND_SCREENSAVER_ENABLE,
-   "Suspendre el salvapantalles"
+   "Suspensió de l'estalvi de pantalla"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SUSPEND_SCREENSAVER_ENABLE,
-   "Evita que el salvapantalles del vostre sistema s'activi."
+   "Evita que s'activi l'estalvi de pantalla del sistema."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_SUSPEND_SCREENSAVER_ENABLE,
+   "Suspèn l'estalvi de pantalla. És una petició que el controlador de vídeo no té per què respectar."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_THREADED,
-   "Vídeo amb fils"
+   "Vídeo multifil"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_THREADED,
-   "Millora el rendiment a costa de la latència i de l'entretallament del vídeo. Useu només si no es pot assolir la velocitat màxima de cap altra manera."
+   "Millora el rendiment a costa de la latència i de més entretallament del vídeo. Useu només si no es pot assolir la velocitat màxima de cap altra manera."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_THREADED,
+   "Utilitza un controlador de vídeo multifil. En usar-lo, podria millorar el rendiment a costa de la latència i més entretallament del vídeo."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION,
-   "Insereix fotogrames negres"
+   "Inserció de fotogrames en negre"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_BLACK_FRAME_INSERTION,
+   "ATENCIÓ: El parpelleig ràpid podria causar una persistència de la imatge en algunes pantalles. Utilitza-ho sota el teu propi risc. // Insereix fotogrames en negre entre fotogrames. Pot reduir molt el desenfocament per moviment emulant l'escaneig d'un monitor CRT, en detriment de la brillantor."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_BLACK_FRAME_INSERTION,
+   "Insereix fotogrames en negre entre fotogrames per a millorar la claredat del moviment. Useu només l'opció designada per a la freqüència d'actualització actual de la pantalla. No ho feu servir per a freqüències d'actualització que no siguin múltiples de 60 Hz, com ara 144 Hz, 165 Hz, etc. No ho combineu amb intervals d'intercanvi > 1, subfotogrames, retard dels fotogrames ni amb la sincronització a la velocitat de fotogrames del contingut exacta. Es pot deixar activada l'opció de VRR ([...]"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_120,
+   "1 - Per a una freqüència d'actualització de 120 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_180,
+   "2 - Per a una freqüència d'actualització de 180 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_240,
+   "3 - Per a una freqüència d'actualització de 240 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_300,
+   "4 - Per a una freqüència d'actualització de 300 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_360,
+   "5 - Per a una freqüència d'actualització de 360 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_420,
+   "6 - Per a una freqüència d'actualització de 420 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_480,
+   "7 - Per a una freqüència d'actualització de 480 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_540,
+   "8 - Per a una freqüència d'actualització de 540 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_600,
+   "9 - Per a una freqüència d'actualització de 600 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_660,
+   "10 - Per a una freqüència d'actualització de 660 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_720,
+   "11 - Per a una freqüència d'actualització de 720 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_780,
+   "12 - Per a una freqüència d'actualització de 780 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_840,
+   "13 - Per a una freqüència d'actualització de 840 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_900,
+   "14 - Per a una freqüència d'actualització de 900 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BLACK_FRAME_INSERTION_VALUE_960,
+   "15 - Per a una freqüència d'actualització de 960 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_BFI_DARK_FRAMES,
+   "Inserció de fotogrames en negre (BFI) - Fotogrames foscos"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_BFI_DARK_FRAMES,
+   "Ajusta el nombre de fotogrames en negre a la seqüència total d'escaneig de sortida. Més significa una claredat de moviment més alta; menys significa una brillantor més alta. No aplicable a 120 Hz atès que només s'introduirà 1 fotograma en negre. Els paràmetres més alts del que és possible us limitarà al màxim possible de la freqüència d'actualització que trieu."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_BFI_DARK_FRAMES,
+   "Ajusta el nombre de fotogrames mostrats en la seqüència d'inserció de fotogrames en negre. Més fotogrames en negre augmenta la claredat, però redueix la brillantor. No es pot aplicar a 120 Hz atès que només hi ha un fotograma extra als 60 Hz, i per això cal que sigui en negre, ja que altrament la inserció de fotogrames en negre no seria activa."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES,
+   "Subfotogrames d'ombreig"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_SHADER_SUBFRAMES,
+   "Insereix fotogrames d'ombreig extra entre fotogrames per a qualsevol efecte d'ombreig que estigui designat per a executar-se més ràpid que la freqüència del contingut. Useu només l'opció designada per a la freqüència d'actualització actual de la pantalla. No ho feu servir per a freqüències d'actualització que no siguin múltiples de 60 Hz, com ara 144 Hz, 165 Hz, etc. No ho combineu amb intervals d'intercanvi > 1, BFI, retard dels fotogrames ni amb la sincronització a la velocitat d[...]"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_120,
+   "2 - Per a una freqüència d'actualització de 120 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_180,
+   "3 - Per a una freqüència d'actualització de 180 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_240,
+   "4 - Per a una freqüència d'actualització de 240 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_300,
+   "5 - Per a una freqüència d'actualització de 300 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_360,
+   "6 - Per a una freqüència d'actualització de 360 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_420,
+   "7 - Per a una freqüència d'actualització de 420 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_480,
+   "8 - Per a una freqüència d'actualització de 480 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_540,
+   "9 - Per a una freqüència d'actualització de 540 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_600,
+   "10 - Per a una freqüència d'actualització de 600 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_660,
+   "11 - Per a una freqüència d'actualització de 660 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_720,
+   "12 - Per a una freqüència d'actualització de 720 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_780,
+   "13 - Per a una freqüència d'actualització de 780 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_840,
+   "14 - Per a una freqüència d'actualització de 840 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_900,
+   "15 - Per a una freqüència d'actualització de 900 Hz"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_SUBFRAMES_VALUE_960,
+   "16 - Per a una freqüència d'actualització de 960 Hz"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_GPU_SCREENSHOT,
    "Captura de pantalla de la GPU"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SCAN_SUBFRAMES,
+   "Simulació de la línia d'escaneig en moviment"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_SCAN_SUBFRAMES,
+   "Simula una línia d'escaneig en moviment bàsica sobre múltiples subfotogrames dividint la pantalla en vertical i renderitzant cada part d'acord amb quants subfotogrames hi ha des del capdamunt cap avall."
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_GPU_SCREENSHOT,
-   "Les captures de pantalla es faran sobre la imatge de la GPU amb els shaders aplicats, si és possible."
+   "Les captures de pantalla prendran la GPU amb el material d'ombreig si es troba disponible."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SMOOTH,
    "Filtre bilineal"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_VIDEO_SMOOTH,
+   "Afegeix un difuminat lleuger a la imatge per a suavitzar les vores dels píxels. Aquesta opció té molt poc impacte en el rendiment. S'hauria de desactivar si useu ombreig."
+   )
 #if defined(DINGUX)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_IPU_FILTER_TYPE,
-   "Interpolació d'imatges"
+   "Interpolació de la imatge"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_DINGUX_IPU_FILTER_TYPE,
@@ -1570,7 +2146,7 @@ MSG_HASH(
 #if defined(RS90) || defined(MIYOO)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_RS90_SOFTFILTER_TYPE,
-   "Interpolació d'imatges"
+   "Interpolació de la imatge"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_DINGUX_RS90_SOFTFILTER_TYPE,
@@ -1588,11 +2164,11 @@ MSG_HASH(
 #endif
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_DELAY,
-   "Retard de l'Auto-Shader"
+   "Retard de l'ombreig automàtic"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_DELAY,
-   "Retard en la càrrega automàtica dels shaders (en ms). Pot solventar algunes errades gràfiques quan s'utilitza programari per capturar la pantalla."
+   "Retarda la càrrega automàtica de l'ombreig (en ms). Pot resoldre algunes errades gràfiques quan s'utilitza programari per capturar la pantalla."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FILTER,
@@ -1600,7 +2176,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FILTER,
-   "Aplica un filtre de vídeo per CPU. Pot tenir un gran impacte sobre el rendiment. Alguns filtres de vídeo poden funcionar només amb nuclis que usen color en 32 o 16 bits."
+   "Aplica un filtre de vídeo per CPU. Pot tenir un gran impacte sobre el rendiment. Alguns filtres de vídeo podrien només funcionar amb nuclis que usen color en 32 o 16 bits."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_FILTER,
+   "Aplica un filtre de vídeo per CPU. Pot tenir un gran impacte sobre el rendiment. Alguns filtres de vídeo podrien només funcionar amb nuclis que usen color en 32 o 16 bits. Es poden seleccionar biblioteques de filtres de vídeo enllaçades de manera dinàmica."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_FILTER_BUILTIN,
+   "Aplica un filtre de vídeo per CPU. Pot tenir un gran impacte sobre el rendiment. Alguns filtres de vídeo podrien només funcionar amb nuclis que usen color en 32 o 16 bits. Es poden seleccionar biblioteques de filtres de vídeo integrades."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FILTER_REMOVE,
@@ -1610,16 +2194,20 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FILTER_REMOVE,
    "Elimina qualsevol filtre de vídeo per CPU actiu."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_NOTCH_WRITE_OVER,
+   "Activa la pantalla completa sobre l'osca als dispositius Android i iOS"
+)
 
 /* Settings > Video > CRT SwitchRes */
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_RESOLUTION,
-   "SwitchRes per a CRT's"
+   "SwitchRes per a monitors CRT"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_RESOLUTION,
-   "Només per a pantalles CRT. Intenta usar la resolució i freqüència de refresc exacta al nucli/joc."
+   "Només per a pantalles CRT. Intenta usar la resolució i freqüència d'actualització exacta del nucli/joc."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_RESOLUTION_SUPER,
@@ -1635,27 +2223,31 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_X_AXIS_CENTERING,
-   "Rota entre aquestes opcions si la imatge no es centra correctament a la pantalla."
+   "Rota entre aquestes opcions si la imatge no se centra correctament a la pantalla."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_PORCH_ADJUST,
-   "Adjustament de pòrtic"
+   "Ajustament de pòrtic"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_PORCH_ADJUST,
    "Roteu entre aquestes opcions per ajustar la configuració de pòrtic per canviar la mida de la imatge."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CRT_SWITCH_HIRES_MENU,
+   "Utilitza el menú d'alta resolució"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_HIRES_MENU,
-   "Canvia al mode de lína d'alta resolució amb menús d'alta resolució quan no hi ha contingut carregat."
+   "Canvia al mode de línia d'alta resolució amb menús d'alta resolució quan no hi ha contingut carregat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CRT_SWITCH_RESOLUTION_USE_CUSTOM_REFRESH_RATE,
-   "Freqüència de refresc personalitzada"
+   "Freqüència d'actualització personalitzada"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CRT_SWITCH_RESOLUTION_USE_CUSTOM_REFRESH_RATE,
-   "En cas necessari, utilitzeu una freqüència de refresc personalitzada especificada al fitxer de configuració."
+   "Utilitza, si cal, una freqüència d'actualització personalitzada especificada en el fitxer de configuració."
    )
 
 /* Settings > Video > Output */
@@ -1668,10 +2260,18 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_MONITOR_INDEX,
    "Seleccioneu quina pantalla utilitzar."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VIDEO_MONITOR_INDEX,
+   "Monitor preferit. 0 (predefinit) significa que no es prefereix cap monitor en particular, 1 i següents (sent 1 el primer monitor) suggereix al RetroArch utilitzar eixe monitor en particular."
+   )
 #if defined (WIIU)
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_WIIU_PREFER_DRC,
+   "Optimitza per al comandament de la Wii U (cal reiniciar)"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WIIU_PREFER_DRC,
-   "Utilitzeu un escalat exacte de 2x del controlador a la subàrea de visualització. Deshabiliteu per mostrar a la resolució nativa de la TV."
+   "Utilitza un escalat exacte de 2x del controlador a la subàrea de visualització. Deshabiliteu per mostrar a la resolució nativa de la TV."
    )
 #endif
 MSG_HASH(
@@ -1680,7 +2280,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_ROTATION,
-   "Forceu una certa rotació del vídeo. La rotació s'afegeix a les que permet el nucli."
+   "Força una certa rotació del vídeo. Aquesta rotació s'afegeix a les que permet el nucli."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SCREEN_ORIENTATION,
@@ -1688,55 +2288,55 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SCREEN_ORIENTATION,
-   "Forceu una certa orientació de la pantalla des del sistema operatiu."
+   "Força una certa orientació de la pantalla des del sistema operatiu."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_GPU_INDEX,
-   "Indel de GPU"
+   "Índex de la GPU"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_GPU_INDEX,
-   "Selecciona quina tarja gràfica usar."
+   "Selecciona quina targeta gràfica utilitzar."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_OFFSET_X,
-   "Òfset horitzontal de la pantalla"
+   "Desplaçament horitzontal de la pantalla"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WINDOW_OFFSET_X,
-   "Força un cert òfset horitzontal al vídeo. L'òfset s'aplica globalment."
+   "Força un cert desplaçament horitzontal al vídeo. S'aplica globalment."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_WINDOW_OFFSET_Y,
-   "Òfset vertical de la pantalla"
+   "Desplaçament vertical de la pantalla"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WINDOW_OFFSET_Y,
-   "Força un cert òfset vertical al vídeo. L'òfset s'aplica globalment."
+   "Força un cert desplaçament vertical al vídeo. S'aplica globalment."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_REFRESH_RATE,
-   "Freqüència de refresc vertical"
+   "Freqüència d'actualització vertical"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_REFRESH_RATE,
-   "La freqüència de refresc vertical de la vostra pantalla. S'usa per calcular una freqüència d'àudio adient.\nS'ignorarà si s'activa 'Vídeo amb fils'."
+   "Freqüència d'actualització vertical de la pantalla. S'usa per a calcular una freqüència d'àudio adient.\nS'ignorarà si s'activa «Vídeo multifil»."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_REFRESH_RATE_AUTO,
-   "Freqüència de refresc estimat de la pantalla"
+   "Freqüència d'actualització estimada"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_REFRESH_RATE_AUTO,
-   "La freqüència de refresc precisa estimada de la pantalla en hz."
+   "La freqüència d'actualització precisa estimada de la pantalla en Hz."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_REFRESH_RATE_POLLED,
-   "Estableix la freqüència de refresc notificada per la pantalla"
+   "Estableix la freqüència d'actualització notificada per la pantalla"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_REFRESH_RATE_POLLED,
-   "La freqüència de refresc tal com l'anuncia el controlador de la pantalla."
+   "La freqüència d'actualització que notifica el controlador de la pantalla."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_AUTOSWITCH_REFRESH_RATE_EXCLUSIVE_FULLSCREEN,
@@ -1753,11 +2353,11 @@ MSG_HASH(
 #if defined(DINGUX) && defined(DINGUX_BETA)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_DINGUX_REFRESH_RATE,
-   "Freqüència de refresc vertical"
+   "Freqüència d'actualització vertical"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_DINGUX_REFRESH_RATE,
-   "Estableix la freqüència de refresc vertical de la pantalla. '50 Hz' habilitarà un vídeo fluid quan s'executi contingut PAL."
+   "Estableix la freqüència d'actualització vertical de la pantalla. «50 Hz» permetrà un vídeo fluid quan s'executi contingut PAL."
    )
 #endif
 MSG_HASH(
@@ -2033,7 +2633,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_VSYNC,
-   "Sincronitza la sortida de vídeo de la tarja gràfica a la freqüència de refresc de la pantalla. Recomanat."
+   "Sincronitza la sortida de vídeo de la targeta gràfica a la freqüència d'actualització de la pantalla. Recomanat."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SWAP_INTERVAL,
@@ -2053,7 +2653,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_ADAPTIVE_VSYNC,
-   "El VSync roman actiu fins que el rendiment cau per davall de la freqüència de refresc establerta. Pot minimitzar l'entretallament quan el rendiment cau per davall del temps real, i pot ser més energèticament eficient."
+   "La sincronització vertical roman activa fins que el rendiment cau per davall de la freqüència d'actualització establerta. Pot minimitzar l'entretallament quan el rendiment cau per davall del temps real, i pot ser més energèticament eficient."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FRAME_DELAY,
@@ -2089,11 +2689,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VRR_RUNLOOP_ENABLE,
-   "Sincronitza a fotogrames per segon exactes de contingut (S-Sync, FreeSync)"
+   "Sincronització a la velocitat de fotogrames del contingut exacta (S-Sync, FreeSync)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VRR_RUNLOOP_ENABLE,
-   "Sense desviació de la cadència demanada pel nucli. Useu-ho per a pantalles amb freqüència de refresc variable (G-Sync, FreeSync, HDMI 2.1 VRR)."
+   "Sense desviació de la cadència demanada pel nucli. Useu-ho per a pantalles amb freqüències d'actualització variable (G-Sync, FreeSync, HDMI 2.1 VRR)."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_HELP_VRR_RUNLOOP_ENABLE,
+   "Sincronització a la velocitat de fotogrames del contingut exacta. Aquesta opció és l'equivalent a forçar una velocitat de x1 permetent alhora l'avançament ràpid. No produeix alteracions en la velocitat d'actualització sol·licitada pel nucli, ni en el Control de velocitat dinàmic."
    )
 
 /* Settings > Audio */
@@ -2165,16 +2769,8 @@ MSG_HASH(
    "Silencia l'àudio del mesclador."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AUDIO_FASTFORWARD_MUTE,
-   "Silencia en l'avanç ràpid"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_FASTFORWARD_MUTE,
    "Silencia automàticament el so quan s’usa l’avançament ràpid."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AUDIO_FASTFORWARD_SPEEDUP,
-   "Accelerar a l'usar l'avançament ràpid"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_FASTFORWARD_SPEEDUP,
@@ -2263,10 +2859,6 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_LATENCY,
    "Latència de l'àudio (ms)"
    )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_AUDIO_LATENCY,
-   "Latència d'àudio desitjada en mil·lisegons. Si el controlador de l'àudio no pot proporcionar la latència especificada pot ser ignorat."
-   )
 
 #ifdef HAVE_MICROPHONE
 /* Settings > Audio > Input */
@@ -2354,7 +2946,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIDI_INPUT,
-   "Dispositius de joc"
+   "Entrada"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MIDI_INPUT,
@@ -2439,14 +3031,6 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_STREAM_STATE_PLAYING,
    "Estat: reproduint"
    )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AUDIO_STREAM_STATE_PLAYING_LOOPED,
-   "Estat: reproduint (en bucle)"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_AUDIO_STREAM_STATE_PLAYING_SEQUENTIAL,
-   "Estat: reproduint (seqüencialment)"
-   )
 
 /* Settings > Audio > Menu Sounds */
 
@@ -2493,14 +3077,6 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_REMAP_BINDS_ENABLE,
    "Sobreescriu les assignacions d'entrada amb les establertes per a aquest nucli."
    )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_INPUT_REMAP_SORT_BY_CONTROLLER_ENABLE,
-   "Sort Remaps By Gamepad"
-   )   
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_INPUT_REMAP_SORT_BY_CONTROLLER_ENABLE,
-   "Remaps will only apply to the active gamepad in which they were saved."
-   )   
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_AUTODETECT_ENABLE,
    "Auto-configura"
@@ -2638,6 +3214,10 @@ MSG_HASH(
    "Clàssic"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_TURBO_MODE_CLASSIC_TOGGLE,
+   "Clàssic (Alternar)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_DEFAULT_BUTTON,
    "Botó per defecte del turbo"
    )
@@ -2668,6 +3248,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_HOTKEY_BINDS,
    "Dreceres de teclat"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_RETROPAD_BINDS,
+   "Assignacions dels RetroPad"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_USER_BINDS,
@@ -2775,16 +3359,12 @@ MSG_HASH(
    "Commuta el menú"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_INPUT_META_MENU_TOGGLE,
-   "Canvia la visualització actual entre el menú i el contingut en execució."
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_QUIT_GAMEPAD_COMBO,
    "Combinació de botons del controlador per sortir de RetroArch."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_QUIT_KEY,
-   "Surt"
+   "Sortir"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_QUIT_KEY,
@@ -2793,6 +3373,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_CLOSE_CONTENT_KEY,
    "Tanca contingut"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_RESET,
+   "Resetejant el contingut"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_RESET,
@@ -2839,8 +3423,8 @@ MSG_HASH(
    "Fer pausa"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_INPUT_META_PAUSE_TOGGLE,
-   "Canvia entre estats de pausa i no pausa del contingut executat."
+   MENU_ENUM_LABEL_VALUE_INPUT_META_FRAMEADVANCE,
+   "Avançar fotograma"
    )
 
 MSG_HASH(
@@ -2898,6 +3482,10 @@ MSG_HASH(
    "Disc Anterior"
    )
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_SHADER_TOGGLE,
+   "Shaders (Alternar)"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_SHADER_NEXT,
    "Següent shader"
@@ -2969,6 +3557,14 @@ MSG_HASH(
    "Reproduir repetició"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_RECORD_REPLAY_KEY,
+   "Enregistrar la repetició"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_META_REPLAY_SLOT_PLUS,
+   "Següent posició de repetició"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_GRAB_MOUSE_TOGGLE,
    "Agafa el Ratolí (commuta)"
    )
@@ -2999,7 +3595,7 @@ MSG_HASH(
 
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_VRR_RUNLOOP_TOGGLE,
-   "Sincronitza amb velocitat de fotograma del contingut exacte (commuta)"
+   "Sincronització a la velocitat de fotogrames del contingut exacta (commuta)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_VRR_RUNLOOP_TOGGLE,
@@ -3098,6 +3694,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_DEVICE_INDEX,
    "Índex del dispositiu"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DEVICE_RESERVATION_NONE,
+   "Sense reserva"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DEVICE_RESERVATION_PREFERRED,
@@ -3354,6 +3954,10 @@ MSG_HASH(
 #ifndef HAVE_DYNAMIC
 #endif
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_ALLOW_ROTATE,
+   "Permet la rotació"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_MANAGER_LIST,
    "Gestionar nuclis"
    )
@@ -3369,6 +3973,10 @@ MSG_HASH(
    "Instal·lar nucli"
 )
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_STEAM_UNINSTALL,
+   "Desinstal·lar un nucli"
+)
 
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_SHOW_CORE_MANAGER_STEAM,
@@ -3396,8 +4004,8 @@ MSG_HASH(
    "Desat ràpid automàtic"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_SAVESTATE_AUTO_SAVE,
-   "Crea un desat ràpid automàticament quan es tanca el contingut. El RetroArch carregarà automàticament aquest desat ràpid si l’opció «Carrega el desat ràpid automàticament» està activada."
+   MENU_ENUM_LABEL_VALUE_SAVESTATE_AUTO_LOAD,
+   "Carrega estat automàticament"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVESTATE_AUTO_LOAD,
@@ -3533,6 +4141,10 @@ MSG_HASH(
 
 /* Settings > File Browser */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_USE_BUILTIN_IMAGE_VIEWER,
+   "Fes servir el visualitzador d’imatges integrat"
+   )
 
 /* Settings > Frame Throttle */
 
@@ -3543,6 +4155,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_FRAME_TIME_COUNTER_SETTINGS,
    "Canvia les opcions del comptador de duració de fotogrames.\nNomés en funcionament quan estigui desactivat el vídeo multifil."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SLOWMOTION_RATIO,
+   "Velocitat de càmera lenta"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_ENUM_THROTTLE_FRAMERATE,
@@ -3558,6 +4174,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REWIND_ENABLE,
    "Suporta rebobinat"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_REWIND_GRANULARITY,
+   "Rebobinar fotogrames"
    )
 
 /* Settings > Frame Throttle > Frame Time Counter */
@@ -3606,6 +4226,10 @@ MSG_HASH(
    "Captura la imatge després d'aplicar els filtres (però no els shaders). El vídeo es veurà tan elegant com el veieu a la pantalla."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_STREAMING_MODE,
+   "Mode de retransmissió"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_STREAMING_MODE_CUSTOM,
    "Personalitzat"
    )
@@ -3632,6 +4256,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_STREAMING_URL,
    "URL de transmissió"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_UDP_STREAM_PORT,
+   "Port de transmissió UDP"
    )
 
 /* Settings > On-Screen Display */
@@ -3754,6 +4382,14 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_OVERLAY_ASPECT_ADJUST_PORTRAIT,
    "Aplica un factor de correcció de la relació d’aspecte a la superposició quan la pantalla està orientada verticalment. Els valors positius augmenten l’alçada efectiva de la superposició mentre que els negatius la redueixen."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OSK_OVERLAY_SETTINGS,
+   "Superposició de teclat"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OVERLAY_MOUSE_SETTINGS,
+   "Superposa el ratolí"
+   )
 
 /* Settings > On-Screen Display > On-Screen Overlay > Keyboard Overlay */
 
@@ -3761,8 +4397,28 @@ MSG_HASH(
 /* Settings > On-Screen Display > On-Screen Overlay > Overlay Lightgun */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_PORT,
+   "Port de la pistola de llum"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_PORT_ANY,
    "Qualsevol"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_TRIGGER_ON_TOUCH,
+   "Pressionar el gatell en tocar"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_TWO_TOUCH_INPUT,
+   "Entrada de 2 dits"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_THREE_TOUCH_INPUT,
+   "Entrada de 3 dits"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_LIGHTGUN_FOUR_TOUCH_INPUT,
+   "Entrada de 4 dits"
    )
 
 /* Settings > On-Screen Display > On-Screen Overlay > Overlay Mouse */
@@ -3771,9 +4427,17 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_MOUSE_SPEED,
    "Velocitat del ratolí"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_MOUSE_SWIPE_THRESHOLD,
+   "Llindar de lliscament"
+   )
 
 /* Settings > On-Screen Display > Video Layout */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_LAYOUT_SELECTED_VIEW,
+   "Seleccionar la vista"
+   )
 
 /* Settings > On-Screen Display > On-Screen Notifications */
 
@@ -3890,10 +4554,6 @@ MSG_HASH(
    "Mida de les notificacions"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_FONT_SIZE,
-   "Especifica la mida de la lletra en punts."
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_POS_X,
    "Posició de les notificacions (horitzontal)"
    )
@@ -3956,6 +4616,10 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_APPICON_SETTINGS,
    "Icona de l'Aplicació"
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_APPICON_SETTINGS,
+   "Canvia icona de la aplicació."
+   )
 #ifdef _3DS
 #endif
 MSG_HASH(
@@ -4017,6 +4681,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_POINTER_ENABLE,
    "Permet controlar el menú amb una pantalla tàctil."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_THREADED_DATA_RUNLOOP_ENABLE,
+   "Tasques multifil"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_THREADED_DATA_RUNLOOP_ENABLE,
@@ -4196,6 +4864,14 @@ MSG_HASH(
    "Estableix una contrasenya per ocultar la pestanya 'Opcions', permetent restaurar-la des del menú principal seleccionant 'Mostrar la pestanya d'Opcions' i introduint la contrasenya."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_FAVORITES,
+   "Mostra \"Preferits'"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_IMAGES,
+   "Mostrar Imatges"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_MUSIC,
    "Mostrar 'Música'"
    )
@@ -4241,7 +4917,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_CONTENTLESS_CORES,
-   "Mostra 'Nuclis sense continguts'"
+   "Mostra «Nuclis sense continguts»"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_CONTENTLESS_CORES,
+   "Especifica el tipus de nucli (si hi ha cap) per mostrar al menú «Nuclis sense continguts». En establir-ho com a «Personalitzat», la visibilitat individual dels nuclis es pot canviar mitjançant el menú «Gestiona els nuclis» (cal reiniciar en Ozone/XMB)."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHOW_CONTENTLESS_CORES_ALL,
@@ -4439,6 +5119,14 @@ MSG_HASH(
    "Mostra «Desa els nuclis forçats»"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_CHEATS,
+   "Mostrar trucs"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_SHADERS,
+   "Mostrar Shaders"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_SHADERS,
    "Mostra l’opció de «Shaders»."
    )
@@ -4566,12 +5254,24 @@ MSG_HASH(
    "Mostra les opcions de «Navegador de fitxers»."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_RECORDING,
+   "Mostra 'Gravant'"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_NETWORK,
+   "Mostrar Xarxa"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_PLAYLISTS,
    "Mostra «Llistes de reproducció»"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_USER,
    "Mostrar 'Usuari'"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_DIRECTORY,
+   "Mostra 'Directori'"
    )
 
 MSG_HASH(
@@ -4584,6 +5284,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SCALE_FACTOR,
    "Factor d'escala"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_WALLPAPER,
+   "Imatge de fons"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_FRAMEBUFFER_OPACITY,
@@ -4818,6 +5522,18 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_SETTINGS,
    "Visibilitat"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_SUMMARY,
+   "Resum d'inici"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_VISIBILITY_ACCOUNT,
+   "Missatges d'inici de sessió"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_VERBOSE_ENABLE,
+   "Missatges detallats"
+   )
 
 /* Settings > Network */
 
@@ -4830,12 +5546,28 @@ MSG_HASH(
    "Anuncia les partides de joc en línia públicament. Si no està activat els clients s’han de connectar manualment en comptes d’usar el vestíbul públic."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_USE_MITM_SERVER,
+   "Fes servir el servidor intermediari"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY_USE_MITM_SERVER,
    "Redirigeix les connexions de joc en línia a través d'un servidor intermediari. És útil si l’amfitrió es troba darrere d’un tallafoc o té problemes de NAT/UPnP."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_MITM_SERVER_LOCATION_2,
+   "Europa Occidental"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_MITM_SERVER_LOCATION_4,
+   "Sud-est Àsia"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_MITM_SERVER_LOCATION_CUSTOM,
    "Personalitzat"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_IP_ADDRESS,
+   "Direcció del servidor"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_TCP_UDP_PORT,
@@ -4844,6 +5576,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_MAX_PING,
    "Limitació del ping"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_PASSWORD,
+   "Contrasenya del servidor"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_START_AS_SPECTATOR,
@@ -4856,6 +5592,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_FADE_CHAT,
    "Amagar xat"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_ALLOW_PAUSING,
+   "Permet la pausa"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY_ALLOW_PAUSING,
@@ -4877,6 +5617,22 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY_INPUT_LATENCY_FRAMES_RANGE,
    "El rang de fotogrames de latència d’entrada que es poden fer servir per amagar la latència de la xarxa. Redueix la fluctuació de senyal i l’ús de CPU del joc en línia a canvi d’una latència d’entrada imprevisible."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETWORK_CMD_ENABLE,
+   "Comandes de xarxa"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETWORK_REMOTE_ENABLE,
+   "RetroPad de xarxa"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_STDIN_CMD_ENABLE,
+   "Comandes stdin"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_UPDATER_SETTINGS,
+   "Actualitza la configuració"
+   )
 
 /* Settings > Network > Updater */
 
@@ -4890,6 +5646,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_HISTORY_SIZE,
    "Mida del historial"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CONTENT_FAVORITES_SIZE,
+   "Mida de la llista de preferits"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_SUBLABEL_CORE,
@@ -4998,6 +5758,22 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_DEFAULT_CORE,
    "Nucli per defecte"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_SORT_MODE,
+   "Mètode d'ordenació"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_CLEAN_PLAYLIST,
+   "Neteja la llista de reproducció"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_REFRESH_PLAYLIST,
+   "Actualitza la llista de reproducció"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DELETE_PLAYLIST,
+   "Esborrar llista de reproducció"
+   )
 
 /* Settings > User */
 
@@ -5027,6 +5803,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CAMERA_ALLOW,
    "Permetre la càmera"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LOCATION_ALLOW,
+   "Permet la localització"
    )
 
 /* Settings > User > Accounts */
@@ -5108,7 +5888,7 @@ MSG_HASH(
    )
 MSG_HASH( /* FIXME Not RGUI specific */
    MENU_ENUM_LABEL_VALUE_RGUI_BROWSER_DIRECTORY,
-   "Navegador d'Arxius"
+   "Directori d'inici"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LIBRETRO_DIR_PATH,
@@ -5320,6 +6100,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_LOBBY_FILTERS,
    "Filtres de vestíbul"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_SHOW_PASSWORDED,
+   "Sales amb contrasenya"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_REFRESH_ROOMS,
@@ -5695,6 +6479,10 @@ MSG_HASH(
    "Afegeix el contingut als “Favorits”."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ADD_TO_PLAYLIST,
+   "Afegir a la llista de reproducció"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SET_CORE_ASSOCIATION,
    "Estableix l’associació del nucli"
    )
@@ -5796,6 +6584,14 @@ MSG_HASH(
    "Carrega estat"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_UNDO_LOAD_STATE,
+   "Desfer càrrega ràpida"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_UNDO_SAVE_STATE,
+   "Desfer desat ràpid"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REPLAY_SLOT,
    "Posició de repitició"
    )
@@ -5804,12 +6600,32 @@ MSG_HASH(
    "Reproduir repetició"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RECORD_REPLAY,
+   "Enregistrar la repetició"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ADD_TO_FAVORITES,
    "Afegeix als preferits"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_ADD_TO_FAVORITES,
    "Afegeix el contingut als “Favorits”."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_START_RECORDING,
+   "Inicia enregistrament"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_STOP_RECORDING,
+   "Atura l'enregistrament"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_START_STREAMING,
+   "Inicia transmissió"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_STOP_STREAMING,
+   "Atura la retransmissió"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_QUICK_MENU_STOP_STREAMING,
@@ -5909,6 +6725,10 @@ MSG_HASH(
 
 /* Quick Menu > Controls > Manage Remap Files */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_REMAP_FILE_LOAD,
+   "Carrega el fitxer de reassignació"
+   )
 
 /* Quick Menu > Controls > Manage Remap Files > Load Remap File */
 
@@ -5924,12 +6744,32 @@ MSG_HASH(
    "Comença o continua la cerca de trucs"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEAT_APPLY_CHANGES,
+   "Aplica els canvis"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT,
    "Trucs"
    )
 
 /* Quick Menu > Cheats > Start or Continue Cheat Search */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_EXACT_VAL,
+   "Igual a %u (%X)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_LT_VAL,
+   "Menys que abans"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_CHEAT_SEARCH_EQ_VAL,
+   "Iguala a l'anterior"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEAT_DELETE_MATCH,
+   "Suprimeix la coincidència #"
+   )
 
 /* Quick Menu > Cheats > Load Cheat File (Replace) */
 
@@ -5964,6 +6804,10 @@ MSG_HASH(
    "Valor"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEAT_ADDRESS,
+   "Adreça de memòria"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_RUMBLE_VALUE,
    "Valor de la vibració"
    )
@@ -5986,6 +6830,10 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DISK_TRAY_INSERT,
    "Insereix disc"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_DISK_IMAGE_APPEND,
+   "Carrega un nou disc"
+   )
 
 /* Quick Menu > Shaders */
 
@@ -6002,6 +6850,14 @@ MSG_HASH(
    "Carrega un shader predefinit. El pipeline de shaders es configurarà automàticament."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_PREPEND,
+   "Anteposar el preajust"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_APPEND,
+   "Afegeix el preajust"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_SAVE,
    "Desar ajust predeterminat"
    )
@@ -6010,8 +6866,20 @@ MSG_HASH(
    "Desa el shader predefinit actual."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_REMOVE,
+   "Elimina el preajust"
+   )
+MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PRESET_REMOVE,
    "Suprimeix un shader predefinit automàtic."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SHADER_APPLY_CHANGES,
+   "Aplica els canvis"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_NUM_PASSES,
+   "Nombre de passades del shader"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_NUM_PASSES,
@@ -6115,6 +6983,10 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_CURRENT_CONFIG_OVERRIDE_GAME,
    "Desa un fitxer de configuració d’excepcions que s’aplicarà només al contingut actual. Tindrà prioritat sobre la configuració principal."
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OVERRIDE_UNLOAD,
+   "Descarrega la personalització"
+   )
 
 /* Quick Menu > Achievements */
 
@@ -6147,12 +7019,32 @@ MSG_HASH(
    "Reprèn el mode expert d’assoliments"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_IDENTIFYING_GAME,
+   "Identificant joc"
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_STARTING_SESSION,
+   "Iniciant la sessió"
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NOT_LOGGED_IN,
+   "No s'ha iniciat la sessió"
+)
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETWORK_ERROR,
+   "Error de xarxa"
+)
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UNKNOWN_GAME,
    "Joc desconegut"
 )
 
 /* Quick Menu > Information */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RDB_ENTRY_DETAIL,
+   "Element de la base de dades"
+   )
 
 /* Miscellaneous UI Items */
 
@@ -6167,6 +7059,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SEARCH,
    "Cerca"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CYCLE_THUMBNAILS,
+   "Intercanvia miniatures"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RANDOM_SELECT,
+   "Selecció aleatòria"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BASIC_MENU_CONTROLS_BACK,
@@ -6215,6 +7115,10 @@ MSG_HASH(
 
 /* Settings Options */
 
+MSG_HASH( /* FIXME Should be MENU_LABEL_VALUE */
+   MSG_UNKNOWN_COMPILER,
+   "Compilador desconegut"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_SHARE_DIGITAL_OR,
    "Compartit"
@@ -6240,6 +7144,10 @@ MSG_HASH(
    "Cap"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_SHARE_NO_PREFERENCE,
+   "Sense preferències"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_TICKER_TYPE_LOOP,
    "Desplaçar cap a l'esquerra"
    )
@@ -6250,6 +7158,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AI_SERVICE_SPEECH_MODE,
    "Mode veu"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AI_SERVICE_NARRATOR_MODE,
+   "Mode narrador"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_ENTRY_REMOVE_ENABLE_ALL,
+   "Totes les llistes de reproducció"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_ENTRY_REMOVE_ENABLE_NONE,
@@ -6388,6 +7304,10 @@ MSG_HASH(
    "Emulador"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_SORT_MODE_DEFAULT,
+   "Configuració predeterminada"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_SORT_MODE_ALPHABETICAL,
    "Alfabètic"
    )
@@ -6396,8 +7316,24 @@ MSG_HASH(
    "Cap"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE_DEFAULT,
+   "Mostra les etiquetes completes"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE_REMOVE_PARENS_AND_BRACKETS,
+   "Elimina () i []"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE_KEEP_REGION,
    "Preservar la regió"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LABEL_DISPLAY_MODE_KEEP_DISC_INDEX,
+   "Preserva l'índex del disc"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_THUMBNAIL_MODE_DEFAULT,
+   "Configuració predeterminada"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_THUMBNAIL_MODE_BOXARTS,
@@ -6474,6 +7410,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_ALMOST_THERE_ENTRY,
    "Gairebé allà"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEEVOS_TRACKERS_ONLY,
+   "Només rastrejadors"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DONT_CARE,
@@ -6643,6 +7583,14 @@ MSG_HASH(
 /* RGUI: Settings > User Interface > Appearance */
 
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_BORDER_FILLER_ENABLE,
+   "Filtre de vores"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_LINEAR_FILTER,
+   "Filtre lineal"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_ASPECT_RATIO,
    "Relació d'aspecte"
    )
@@ -6661,6 +7609,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_TRANSPARENCY,
    "Transparència"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_SHADOWS,
+   "Efectes d'ombra"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_THUMBNAILS_RGUI,
+   "Miniatura superior"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_RGUI,
+   "Miniatura inferior"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_RGUI_SWAP_THUMBNAILS,
+   "Intercanvia miniatures"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_EXTENDED_ASCII,
@@ -6692,6 +7656,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_16_10_CENTRE,
    "16:10 (centrat)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_21_9_CENTRE,
+   "21:9 (Centrat)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_ASPECT_RATIO_3_2_CENTRE,
@@ -6726,8 +7694,24 @@ MSG_HASH(
    "Vermell clàssic"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME_CLASSIC_ORANGE,
+   "Taronja clàssic"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME_CLASSIC_YELLOW,
+   "Groc clàssic"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME_CLASSIC_GREEN,
+   "Verd clàssic"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME_CLASSIC_BLUE,
    "Blau clàssic"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME_CLASSIC_VIOLET,
+   "Lila clàssic"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME_CLASSIC_GREY,
@@ -6776,6 +7760,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME_GRUVBOX_DARK,
    "Grubvox Fosc"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME_GRUVBOX_LIGHT,
+   "Gruvbox (clar)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RGUI_MENU_COLOR_THEME_HACKING_THE_KERNEL,
@@ -6841,6 +7829,10 @@ MSG_HASH(
    "Tipus de miniatura que es mostrarà a l’esquerra."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ICON_THUMBNAILS,
+   "Miniatura de la icona"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DYNAMIC_WALLPAPER,
    "Fons dinàmic"
    )
@@ -6865,6 +7857,10 @@ MSG_HASH(
    "Seleccioneu un altre tipus de lletra principal pel menú."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_FONT_COLOR_RED,
+   "Color de la font vermell"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_LAYOUT,
    "Disposició"
    )
@@ -6875,6 +7871,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_SWITCH_ICONS,
    "Icones d'interruptors"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_XMB_SHADOWS_ENABLE,
+   "Efectes d'ombra"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_XMB_RIBBON_ENABLE,
+   "Canal de shaders"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME,
@@ -6996,6 +8000,10 @@ MSG_HASH(
    "Blau de mitjanit"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_PLAIN,
+   "Imatge de fons"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_UNDERSEA,
    "Submarí"
    )
@@ -7027,6 +8035,14 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_ICE_COLD,
    "Glaçat"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_GRAY_DARK,
+   "Gris fosc"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_GRAY_LIGHT,
+   "Gris clar"
+   )
 
 /* Ozone: Settings > User Interface > Appearance */
 
@@ -7038,6 +8054,19 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_COLLAPSE_SIDEBAR,
    "Manté la barra lateral sempre replegada."
    )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_LEFT_THUMBNAILS_OZONE,
+   "Substitueix el plafó de metadades per una altra miniatura."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_THUMBNAIL_SCALE_FACTOR,
+   "Factor d’escala de les miniatures"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
+   "Ajusta la mida de la barra de miniatures."
+   )
+
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_MENU_COLOR_THEME,
    "Color del tema"
@@ -7086,18 +8115,7 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_PURPLE_RAIN,
    "Pluja lila"
    )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_LEFT_THUMBNAILS_OZONE,
-   "Substitueix el plafó de metadades per una altra miniatura."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_THUMBNAIL_SCALE_FACTOR,
-   "Factor d’escala de les miniatures"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
-   "Ajusta la mida de la barra de miniatures."
-   )
+
 
 /* MaterialUI: Settings > User Interface > Appearance */
 
@@ -7197,12 +8215,20 @@ MSG_HASH(
    "Llista (petita)"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_VIEW_PORTRAIT_LIST_MEDIUM,
+   "Llista (Mitjana)"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_VIEW_LANDSCAPE_DISABLED,
    "No"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_VIEW_LANDSCAPE_LIST_SMALL,
    "Llista (petita)"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_VIEW_LANDSCAPE_LIST_MEDIUM,
+   "Llista (Mitjana)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MATERIALUI_THUMBNAIL_VIEW_LANDSCAPE_LIST_LARGE,
@@ -7230,6 +8256,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_MENU_FILE,
    "&Fitxer"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_MENU_FILE_LOAD_CORE,
+   "Carrera un nucli..."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_MENU_FILE_UNLOAD_CORE,
@@ -7284,8 +8314,20 @@ MSG_HASH(
    "&Ajuda"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_MENU_HELP_ABOUT,
+   "Sobre RetroArch"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_MENU_HELP_DOCUMENTATION,
+   "Documentació"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_LOAD_CORE,
    "Carregar Nucli"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_LOADING_CORE,
+   "Carregant el nucli..."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_NAME,
@@ -7301,7 +8343,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_TAB_FILE_BROWSER,
-   "Navegador d'Arxius"
+   "Navegador de fitxers"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_TAB_FILE_BROWSER_TOP,
@@ -7310,6 +8352,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_TAB_FILE_BROWSER_UP,
    "Amunt"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_MENU_DOCK_CONTENT_BROWSER,
+   "Explorador de continguts"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_THUMBNAIL_BOXART,
@@ -7322,6 +8368,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_THUMBNAIL_TITLE_SCREEN,
    "Pantalla de títol"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_THUMBNAIL_LOGO,
+   "Logotip"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_ALL_PLAYLISTS,
+   "Totes les llistes de reproducció"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_CORE,
@@ -7344,6 +8398,10 @@ MSG_HASH(
    "Advertència"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_NETWORK_ERROR,
+   "Error de xarxa"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_LOG,
    "Registre"
    )
@@ -7352,8 +8410,16 @@ MSG_HASH(
    "%1 elements"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_DROP_IMAGE_HERE,
+   "Arrossega aquí una imatge"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_STOP,
    "Atura"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_ASSOCIATE_CORE,
+   "Nucli associat"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_HIDE,
@@ -7362,6 +8428,22 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_CHOOSE,
    "Escollir..."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_SELECT_COLOR,
+   "Seleccionar el color"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_SELECT_THEME,
+   "Seleccionar el tema"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_CUSTOM_THEME,
+   "Tema personalitzat"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_FILE_IS_EMPTY,
+   "L'arxiu està buit."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_ZOOM,
@@ -7388,8 +8470,24 @@ MSG_HASH(
    "Progrés:"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_NEW_PLAYLIST,
+   "Nova llista de reproducció"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_DELETE_PLAYLIST,
+   "Esborrar llista de reproducció"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_RENAME_PLAYLIST,
+   "Reanomena la llista de reproducció"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_QUESTION,
    "Qüestió"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_PLAYLIST_ENTRY,
+   "Element de la llista de reproducció"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_PLAYLIST_ENTRY_NAME,
@@ -7560,6 +8658,18 @@ MSG_HASH(
    "Límit de la memòria cau de miniatures:"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_DOWNLOAD_ALL_THUMBNAILS_ENTIRE_SYSTEM,
+   "Sistema sencer"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_DOWNLOAD_ALL_THUMBNAILS_THIS_PLAYLIST,
+   "Aquesta llista de reproducció"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_CORE_OPTIONS,
+   "Opcions del nucli"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_RESET,
    "Reiniciar"
    )
@@ -7573,6 +8683,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TURBO_DEADZONE_LIST,
    "Turbo/zona morta"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_COUNTERS,
+   "Comptadors dels nuclis"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NO_DISK,
@@ -7599,12 +8713,20 @@ MSG_HASH(
    "Subsistemes"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NO_PLAYLISTS,
+   "No hi ha llistes de reproducció."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BT_CONNECTED,
    "Connectat"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_ONLINE,
    "En línia"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEAT_SETTINGS,
+   "Configuració dels trucs"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_SEARCH_SETTINGS,
@@ -7639,10 +8761,6 @@ MSG_HASH(
    "Teclat"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_USE_BUILTIN_IMAGE_VIEWER,
-   "Fes servir el visualitzador d’imatges integrat"
-   )
-MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_WAITABLE_SWAPCHAINS,
    "Sincronització rígida de la CPU i GPU. Redueix la latència a cost de rendiment."
    )
@@ -7675,6 +8793,10 @@ MSG_HASH(
    "Iniciar"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_ROOM_NICKNAME,
+   "Sobrenom: %s"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_COMPAT_CONTENT_NO_CORE,
    "No s’ha trobat cap nucli"
    )
@@ -7698,16 +8820,32 @@ MSG_HASH(
    "Sistema BGM"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CUSTOM_RATIO,
+   "Relació personalitzada"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CHEAT_MATCH_IDX,
+   "Veure coincidència #"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_FORCE_ASPECT,
    "Força la relació d’aspecte"
    )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_RESUME,
-   "Continua"
+MSG_HASH( /* FIXME Still exists in a comment about being removed */
+   MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_FOOTER_OPACITY,
+   "Opacitat del peu de pàgina"
+   )
+MSG_HASH( /* FIXME Still exists in a comment about being removed */
+   MENU_ENUM_LABEL_VALUE_MATERIALUI_MENU_HEADER_OPACITY,
+   "Opacitat de l'encapçalament"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_NETPLAY_ENABLE,
    "Joc en línia"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RDB_ENTRY_START_CONTENT,
+   "Iniciar contingut"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_HELP,
@@ -7748,6 +8886,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_NETPLAY_LAN_SCAN_SETTINGS,
    "Cerca amfitrions de joc a la xarxa local i s’hi connecta."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_NETPLAY_MODE,
+   "Client de joc en xarxa"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEEVOS_DESCRIPTION,
@@ -7934,7 +9076,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BASIC_MENU_ENUM_CONTROLS_QUIT,
-   "Surt"
+   "Sortir"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BASIC_MENU_ENUM_CONTROLS_SCROLL_UP,
@@ -8066,10 +9208,22 @@ MSG_HASH(
    MSG_NETPLAY_CLIENT_DEVICES,
    "Dispositius"
    )
+MSG_HASH(
+   MSG_NETPLAY_CHAT_SUPPORTED,
+   "Compatibilitat amb el xat"
+   )
 
+MSG_HASH(
+   MSG_AUDIO_VOLUME,
+   "Volum d'àudio"
+   )
 MSG_HASH(
    MSG_AUTODETECT,
    "Detecció automàtica"
+   )
+MSG_HASH(
+   MSG_CAPABILITIES,
+   "Capacitats"
    )
 MSG_HASH(
    MSG_CONNECTING_TO_PORT,
@@ -8182,6 +9336,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_SET_CORE_ASSOCIATION,
    "Nucli definit: "
+   )
+MSG_HASH(
+   MSG_APPENDED_DISK,
+   "Disc afegit"
    )
 MSG_HASH(
    MSG_APPLICATION_DIR,
@@ -8354,6 +9512,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_EXTRACTING,
    "Extraient"
+   )
+MSG_HASH(
+   MSG_EXTRACTING_FILE,
+   "Extraient el fitxer"
    )
 MSG_HASH(
    MSG_FAILED_TO_ALLOCATE_MEMORY_FOR_PATCHED_CONTENT,
@@ -8564,6 +9726,10 @@ MSG_HASH(
    "Introduir truc"
    )
 MSG_HASH(
+   MSG_INPUT_RENAME_ENTRY,
+   "Reanomenar títol"
+   )
+MSG_HASH(
    MSG_INTERFACE,
    "Interfície"
    )
@@ -8584,12 +9750,20 @@ MSG_HASH(
    "Carregant"
    )
 MSG_HASH(
+   MSG_LOADING_STATE,
+   "Carregant l'estat"
+   )
+MSG_HASH(
    MSG_MEMORY,
    "Memòria"
    )
 MSG_HASH(
    MSG_PAUSED,
    "En pausa."
+   )
+MSG_HASH(
+   MSG_RECORDING_TO,
+   "Enregistrant a"
    )
 MSG_HASH(
    MSG_RESET,
@@ -8604,8 +9778,28 @@ MSG_HASH(
    "No està disponible el rebobinat perquè aquest nucli no té suport d'estat desats serialitzats."
    )
 MSG_HASH(
+   MSG_SAVING_RAM_TYPE,
+   "Desant el tipus de memòria RAM"
+   )
+MSG_HASH(
+   MSG_SAVING_STATE,
+   "Desant estat"
+   )
+MSG_HASH(
    MSG_SCANNING,
    "Escanejant"
+   )
+MSG_HASH(
+   MSG_SENDING_COMMAND,
+   "Enviant comanda"
+   )
+MSG_HASH(
+   MSG_SLOW_MOTION,
+   "A càmera lenta."
+   )
+MSG_HASH(
+   MSG_FAST_FORWARD,
+   "Avançament ràpid."
    )
 MSG_HASH(
    MSG_BLOCKING_SRAM_OVERWRITE,
@@ -8632,6 +9826,10 @@ MSG_HASH(
    "Millor: %s" /* Best: [value] */
    )
 MSG_HASH(
+   MSG_TOGGLE_CONTENT_METADATA,
+   "Mostra metadates"
+   )
+MSG_HASH(
    MSG_PRESS_AGAIN_TO_QUIT,
    "Premeu una altra vegada per sortir..."
    )
@@ -8648,6 +9846,10 @@ MSG_HASH(
    "Fi de la pausa."
    )
 MSG_HASH(
+   MSG_VALUE_REBOOTING,
+   "Reiniciant..."
+   )
+MSG_HASH(
    MSG_DEVICE_CONFIGURED_IN_PORT,
    "configurat al port"
    )
@@ -8658,6 +9860,10 @@ MSG_HASH(
 MSG_HASH(
    MSG_DEVICE_DISCONNECTED_FROM_PORT_NR,
    "Desconnectat %s del port %u"
+   )
+MSG_HASH(
+   MSG_DEVICE_NOT_CONFIGURED,
+   "Sense configurar"
    )
 MSG_HASH(
    MSG_DEVICE_NOT_CONFIGURED_NR,
@@ -8732,6 +9938,10 @@ MSG_HASH(
    "Contrasenya incorrecta."
    )
 MSG_HASH(
+   MSG_CHEAT_SEARCH_DELETE_MATCH_SUCCESS,
+   "Coincidència suprimida."
+   )
+MSG_HASH(
    MSG_CHEAT_SEARCH_ADDED_MATCHES_TOO_MANY,
    "No queda espai. El màxim són 100 trucs simultanis."
    )
@@ -8780,8 +9990,20 @@ MSG_HASH(
    "S’ha activat un truc. S’ha desactivat el mode expert d’assoliments per la sessió actual."
    )
 MSG_HASH(
+   MSG_CHEEVOS_COMPLETED_GAME,
+   "Completat %s"
+   )
+MSG_HASH(
    MSG_CHEEVOS_HARDCORE_MODE_ENABLE,
    "S’ha activat el mode expert d’assoliments; s’han desactivat els desats ràpids i el rebobinat."
+   )
+MSG_HASH(
+   MSG_CHEEVOS_UNSUPPORTED_COUNT,
+   "%d no compatible"
+)
+MSG_HASH(
+   MSG_CHEEVOS_RICH_PRESENCE_SPECTATING,
+   "Expectant %s"
    )
 MSG_HASH(
    MSG_RESAMPLER_QUALITY_LOWEST,
@@ -8800,6 +10022,10 @@ MSG_HASH(
    "Més alt"
    )
 MSG_HASH(
+   MSG_DUMPING_DISC,
+   "Abocant el disc..."
+   )
+MSG_HASH(
    MSG_DRIVE_NUMBER,
    "Unitat %d"
    )
@@ -8808,20 +10034,52 @@ MSG_HASH(
    "Escanejant: "
    )
 MSG_HASH(
+   MSG_MANUAL_CONTENT_SCAN_END,
+   "Cerca finalitzada: "
+   )
+MSG_HASH(
+   MSG_CORE_BACKUP_SCANNING_CORE,
+   "Cercant al nucli: "
+   )
+MSG_HASH(
    MSG_CORE_INSTALLATION_FAILED,
    "Ha fallat la instal·lació del nucli: "
    )
 MSG_HASH(
    MSG_CORE_SET_STANDALONE_EXEMPT_FAILED,
-   "Error al treure el nucli de la llista 'Nuclis sense continguts': "
+   "No s'ha pogut eliminar el nucli de la llista «Nuclis sense continguts»: "
    )
 MSG_HASH(
    MSG_CORE_UNSET_STANDALONE_EXEMPT_FAILED,
-   "Error a l'afegir el nucli a la llista 'Nuclis sense continguts': "
+   "No s'ha pogut afegir el nucli a la llista «Nuclis sense continguts»: "
+   )
+MSG_HASH(
+   MSG_VRR_RUNLOOP_ENABLED,
+   "S'ha activat la sincronització a la velocitat de fotogrames del contingut exacta."
+   )
+MSG_HASH(
+   MSG_VRR_RUNLOOP_DISABLED,
+   "S'ha desactivat la sincronització a la velocitat de fotogrames del contingut exacta."
+   )
+MSG_HASH(
+   MSG_VIDEO_REFRESH_RATE_CHANGED,
+   "S'ha canviat la freqüència d'actualització a %s Hz."
    )
 
 /* Lakka */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_UPDATE_LAKKA,
+   "Actualitzar Lakka"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_FRONTEND_NAME,
+   "Nom de la interfície visual"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_LAKKA_VERSION,
+   "Versió de Lakka"
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_REBOOT,
    "Reiniciar"
@@ -8829,6 +10087,10 @@ MSG_HASH(
 
 /* Environment Specific Settings */
 
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_SPLIT_JOYCON,
+   "Separa els Joy-Con"
+   )
 MSG_HASH(
    MSG_SCREEN_RESOLUTION_FORMAT_NO_DESC,
    "%u×%u"
@@ -8846,6 +10108,10 @@ MSG_HASH(
    "Obrir..."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_VIDEO_FILTER_FLICKER,
+   "Filtre de parpelleig"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_GAMMA,
    "Gamma del vídeo"
    )
@@ -8854,8 +10120,8 @@ MSG_HASH(
    "Filtre suau"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_WIFI_SETTINGS,
-   "Connexió sense fils Wi-Fi"
+   MENU_ENUM_LABEL_VALUE_WIFI_ENABLED,
+   "Activant la WIFI"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_WIFI_DISCONNECT,
@@ -8982,8 +10248,24 @@ MSG_HASH(
    "Reiniciar RetroArch"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AUDIO_BLOCK_FRAMES,
+   "Bloquejant fotogrames"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TOUCH_ENABLE,
    "Tàctil"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_SMALL_KEYBOARD_ENABLE,
+   "Teclat petit"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_SHOW_REBOOT,
+   "Mostrar Reiniciar"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_MENU_SHOW_SHUTDOWN,
+   "Mostra 'Apagar'"
    )
 MSG_HASH(
    MSG_ROOM_PASSWORDED,
@@ -9126,12 +10408,24 @@ MSG_HASH(
    "Sense\nDades"
    )
 MSG_HASH(
+   MSG_3DS_BOTTOM_MENU_NO_STATE_THUMBNAIL,
+   "No hi ha captures de pantalla"
+   )
+MSG_HASH(
    MSG_3DS_BOTTOM_MENU_RESUME,
    "Continuar la partida"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BOTTOM_FONT_ENABLE,
    "Habilitar la font"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_BOTTOM_FONT_COLOR_RED,
+   "Color vermell de la font"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_BOTTOM_FONT_COLOR_BLUE,
+   "Color blau de la font"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BOTTOM_FONT_SCALE,
@@ -9144,3 +10438,34 @@ MSG_HASH(
    MSG_AI_SERVICE_STOPPED,
    "aturat."
    )
+#ifdef HAVE_GAME_AI
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_GAME_AI_OPTIONS,
+   "IA del joc"
+   )
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_GAME_AI_OVERRIDE_P1,
+   "Anul·lar p1"
+   )
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_GAME_AI_OVERRIDE_P2,
+   "Anul·lar p2"
+   )
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_GAME_AI_SHOW_DEBUG,
+   "Mostrar depuració"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_GAME_AI_SHOW_DEBUG,
+   "Mostrar depuració"
+   )
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_GAME_AI,
+   "Mostrar IA del joc"
+   )
+#endif

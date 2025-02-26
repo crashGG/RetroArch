@@ -260,6 +260,7 @@ enum event_command
    CMD_EVENT_PRESENCE_UPDATE,
    CMD_EVENT_OVERLAY_NEXT,
    CMD_EVENT_OSK_TOGGLE,
+   CMD_EVENT_RELOAD_CONFIG,
 #ifdef HAVE_MICROPHONE
    /* Stops all enabled microphones. */
    CMD_EVENT_MICROPHONE_STOP,
@@ -328,21 +329,20 @@ struct rarch_state;
 bool command_event(enum event_command action, void *data);
 
 /* Constructors for the supported drivers */
+#ifdef HAVE_NETWORK_CMD
 command_t* command_network_new(uint16_t port);
-command_t* command_stdin_new(void);
-command_t* command_uds_new(void);
-
 bool command_network_send(const char *cmd_);
-
-#ifdef HAVE_CONFIGFILE
-bool command_event_save_config(
-      const char *config_path,
-      char *s, size_t len);
+#endif
+#ifdef HAVE_STDIN_CMD
+command_t* command_stdin_new(void);
+#endif
+#ifdef LAKKA
+command_t* command_uds_new(void);
+#endif
+#ifdef EMSCRIPTEN
+command_t* command_emscripten_new(void);
 #endif
 
-void command_event_undo_save_state(char *s, size_t len);
-
-void command_event_undo_load_state(char *s, size_t len);
 
 void command_event_set_mixer_volume(
       settings_t *settings,
@@ -351,7 +351,7 @@ void command_event_set_mixer_volume(
 bool command_event_resize_windowed_scale(settings_t *settings,
       unsigned window_scale);
 
-bool command_event_save_auto_state(void);
+size_t command_event_save_auto_state(void);
 
 /**
  * event_set_volume:

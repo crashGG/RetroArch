@@ -363,6 +363,7 @@ typedef struct vulkan_context
    VkPhysicalDeviceProperties gpu_properties;
    VkPhysicalDeviceMemoryProperties memory_properties;
 
+   VkPresentModeKHR present_modes[16];
    VkImage swapchain_images[VULKAN_MAX_SWAPCHAIN_IMAGES];
    VkFence swapchain_fences[VULKAN_MAX_SWAPCHAIN_IMAGES];
    VkFormat swapchain_format;
@@ -385,9 +386,9 @@ typedef struct vulkan_context
 
    unsigned swapchain_width;
    unsigned swapchain_height;
-   unsigned swap_interval;
    unsigned num_recycled_acquire_semaphores;
 
+   int8_t swap_interval;
    uint8_t flags;
 
    bool swapchain_fences_signalled[VULKAN_MAX_SWAPCHAIN_IMAGES];
@@ -565,7 +566,8 @@ typedef struct vk
    unsigned video_height;
 
    unsigned tex_w, tex_h;
-   unsigned vp_out_width, vp_out_height;
+   unsigned out_vp_width;
+   unsigned out_vp_height;
    unsigned rotation;
    unsigned num_swapchain_images;
    unsigned last_valid_index;
@@ -682,7 +684,7 @@ typedef struct vk
 } vk_t;
 
 bool vulkan_buffer_chain_alloc(const struct vulkan_context *context,
-      struct vk_buffer_chain *chain, size_t size,
+      struct vk_buffer_chain *chain, size_t len,
       struct vk_buffer_range *range);
 
 struct vk_descriptor_pool *vulkan_alloc_descriptor_pool(
@@ -702,7 +704,7 @@ void vulkan_debug_mark_buffer(VkDevice device, VkBuffer buffer);
 
 struct vk_buffer vulkan_create_buffer(
       const struct vulkan_context *context,
-      size_t size, VkBufferUsageFlags usage);
+      size_t len, VkBufferUsageFlags usage);
 
 void vulkan_destroy_buffer(
       VkDevice device,
@@ -722,7 +724,7 @@ bool vulkan_surface_create(gfx_ctx_vulkan_data_t *vk,
       enum vulkan_wsi_type type,
       void *display, void *surface,
       unsigned width, unsigned height,
-      unsigned swap_interval);
+      int8_t swap_interval);
 
 void vulkan_present(gfx_ctx_vulkan_data_t *vk, unsigned index);
 
@@ -730,7 +732,7 @@ void vulkan_acquire_next_image(gfx_ctx_vulkan_data_t *vk);
 
 bool vulkan_create_swapchain(gfx_ctx_vulkan_data_t *vk,
       unsigned width, unsigned height,
-      unsigned swap_interval);
+      int8_t swap_interval);
 
 void vulkan_debug_mark_image(VkDevice device, VkImage image);
 void vulkan_debug_mark_memory(VkDevice device, VkDeviceMemory memory);

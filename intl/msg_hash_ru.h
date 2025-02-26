@@ -73,7 +73,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_CORE_LIST,
-   "Выбор ядра libretro. Браузер открывает путь, указанный для каталога хранения ядер. Если путь не задан, браузер открывается в корне.\nЕсли каталог хранения ядер является директорией, она исп. в качестве папки верхнего уровня. Если каталог ядер это абсолютный путь, то браузер буде[...]"
+   "Выбор ядра libretro. Браузер открывает путь, заданный для каталога 'Ядра'. Если он пуст, обзор начинается в корне.\nЕсли каталог ядер является директорией, она исп. как папка верхнего уровня. Если каталог ядер это абсолютный путь, то браузер открывает папку расположения файла."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_CONTENT_LIST,
@@ -85,7 +85,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_LOAD_CONTENT_LIST,
-   "Выбор контента. Для запуска необходимо выбрать 'ядро' и файл контента.\nЧтобы назначить начальную папку браузера, укажите путь для каталога 'Браузера файлов'. Если путь не задан, браузер будет открываться в корне.\nЗагруженное ядро будет исп. для фильтрации файлов в браузере [...]"
+   "Выберите ядро и файл контента для запуска.\nДля установки начальной папки укажите путь к каталогу 'Браузер файлов'. Если он не задан, обзор будет начинаться в корневом каталоге.\nБраузер использует загруженное ядро для фильтрации файлов и запуска контента."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LOAD_DISC,
@@ -727,6 +727,30 @@ MSG_HASH(
    "Поддержка SDL 2"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_D3D8_SUPPORT,
+   "Поддержка Direct3D 8"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_D3D9_SUPPORT,
+   "Поддержка Direct3D 9"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_D3D10_SUPPORT,
+   "Поддержка Direct3D 10"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_D3D11_SUPPORT,
+   "Поддержка Direct3D 11"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_D3D12_SUPPORT,
+   "Поддержка Direct3D 12"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_GDI_SUPPORT,
+   "Поддержка GDI"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_VULKAN_SUPPORT,
    "Поддержка Vulkan"
    )
@@ -807,6 +831,10 @@ MSG_HASH(
    "Поддержка PulseAudio"
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_PIPEWIRE_SUPPORT,
+   "Поддержка PipeWire"
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_COREAUDIO_SUPPORT,
    "Поддержка CoreAudio"
    )
@@ -885,6 +913,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_V4L2_SUPPORT,
    "Поддержка Video4Linux2"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_SSL_SUPPORT,
+   "Поддержка SSL"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SYSTEM_INFO_LIBUSB_SUPPORT,
@@ -1746,6 +1778,10 @@ MSG_HASH(
    "Драйвер PulseAudio. Если в системе используется PulseAudio, убедитесь, что выбран данный драйвер, а не, к примеру, ALSA."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_PIPEWIRE,
+   "Драйвер PipeWire. Если система использует PipeWire, убедиться, что вместо PulseAudio используется соответствующий драйвер."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_DRIVER_JACK,
    "Драйвер Jack Audio Connection Kit."
    )
@@ -1936,7 +1972,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_BLACK_FRAME_INSERTION,
-   "Вставляет чёрный кадр(ы) между кадрами. Может существенно уменьшить размытие путём эмуляции развёртки ЭЛТ, но снижает яркость. Не включайте одновременно с интервалом обновления > 1, подкадрами, задержкой кадра или синхронизацией с кадровой частотой контента."
+   "ВНИМАНИЕ: быстрое мерцание на некоторых дисплеях может приводить к остаточному изображению. Используйте с осторожностью // Вставляет между кадрами кадр(ы) чёрного цвета. Может существенно уменьшить размытие, эмулируя развёртку ЭЛТ, но снижает яркость."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_BLACK_FRAME_INSERTION,
@@ -2020,7 +2056,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_SUBFRAMES,
-   "Вставляет между кадрами дополнительный кадр(ы) шейдера. Позволяет шейдерам выводить эффекты с кадровой частотой выше исходной частоты контента. Значение должно соответствовать действующей частоте экрана. Не включайте одновременно с интервалом обновления > 1, вставкой чё[...]"
+   "ВНИМАНИЕ: быстрое мерцание на некоторых дисплеях может приводить к остаточному изображению. Используйте с осторожностью // Имитирует простую плавающую строку развёртки поверх нескольких подкадров, разделяя экран по вертикали и отрисовывая каждую часть исходя из числа п[...]"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_SHADER_SUBFRAMES,
@@ -2096,7 +2132,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SCAN_SUBFRAMES,
-   "Имитирует простую плавающую строку развёртки поверх нескольких подкадров путём деления экрана по вертикали и отрисовки каждой его части исходя из количества подкадров."
+   "ВНИМАНИЕ: быстрое мерцание на некоторых дисплеях может приводить к остаточному изображению. Используйте с осторожностью // Имитирует простую плавающую строку развёртки поверх нескольких подкадров, разделяя экран по вертикали и отрисовывая каждую часть исходя из числа п[...]"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_SCAN_SUBFRAMES,
@@ -2324,11 +2360,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_REFRESH_RATE_AUTO,
-   "Точная частота обновления экрана (в Гц) для расчёта вход. частоты звука:\nчастота_звука = вход. частота игры * частота обновления экрана / частота обновления игры.\nЕсли ядро не сообщает никаких значений, то для совместимости исп. станд. значения NTSC.\nДанное значение должно ост[...]"
+   "Точная частота обнов. экрана (в Гц) для расчёта вх. частоты звука:\nчастота_звука = вх. частота игры * частота обнов. экрана / частота обнов. игры.\nЕсли ядро не сообщает значений, то для совместимости исп. станд. значения NTSC.\nДанное значение должно быть как можно ближе к 60 Гц, что[...]"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_REFRESH_RATE_POLLED,
-   "Использовать частоту обновления экрана"
+   "Установить частоту обновления экрана"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_REFRESH_RATE_POLLED,
@@ -2531,7 +2567,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SCALE_INTEGER_AXIS,
-   "Изменять масштаб только по высоте или по высоте и ширине. Значения в полшага применяются к источникам высокого разрешения."
+   "Изменять масштаб по высоте, ширине или по высоте и ширине. Значения в полшага применяются только к источникам высокого разрешения."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SCALE_INTEGER_SCALING,
@@ -2628,11 +2664,11 @@ MSG_HASH(
    "Сдвиг области просмотра по Y"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_BIAS_X, 
+   MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_BIAS_X,
    "Установка смещения области просмотра по горизонтали (если ширина превышает высоту контента). 0.0 соответствует левому краю, 1.0 - правому."
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_BIAS_Y, 
+   MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_BIAS_Y,
    "Установка смещения области просмотра по вертикали (если высота превышает высоту контента). 0.0 соответствует левому краю, 1.0 - правому."
    )
 #if defined(RARCH_MOBILE)
@@ -2653,11 +2689,11 @@ MSG_HASH(
    "Сдвиг области просмотра по Y (портретный режим)"
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_BIAS_PORTRAIT_X, 
+   MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_BIAS_PORTRAIT_X,
    "Установка смещения области просмотра по горизонтали (если ширина превышает высоту контента). 0.0 соответствует левому краю, 1.0 - правому. Для портретного режима."
    )
 MSG_HASH(
-   MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_BIAS_PORTRAIT_Y, 
+   MENU_ENUM_SUBLABEL_VIDEO_VIEWPORT_BIAS_PORTRAIT_Y,
    "Установка смещения области просмотра по вертикали (если высота превышает высоту контента). 0.0 соответствует левому краю, 1.0 - правому. Для портретного режима."
    )
 #endif
@@ -2683,7 +2719,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_CROP_OVERSCAN,
-   "Срезает несколько пикселей по краю картинки, которые, как правило, не используется при разработке и могут вносить искажения."
+   "Срезает несколько пикселей по краю изображения, которые обычно не используется при разработке и могут содержать графический мусор."
    )
 
 /* Settings > Video > HDR */
@@ -2902,23 +2938,31 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_RESPECT_SILENT_MODE,
-   "Приглушать все звуки в беззвучном режиме."
+   "Заглушать аудио в беззвучном режиме."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_FASTFORWARD_MUTE,
-   "Заглушать при ускорении"
+   "Заглушать звук при перемотке вперёд"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_FASTFORWARD_MUTE,
-   "Автоматически заглушать звук при ускоренной перемотке."
+   "Автоматически заглушать аудио при перемотке вперёд."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_FASTFORWARD_SPEEDUP,
-   "Ускорять при перемотке вперёд"
+   "Ускорять звук при перемотке вперёд"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_FASTFORWARD_SPEEDUP,
-   "Ускорять звук при перемотке вперёд. Предотвращает искажения, но смещает высоту звука."
+   "Ускорять аудио при использовании перемотки вперёд. Предотвращает треск, но изменяет высоту звука."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_AUDIO_REWIND_MUTE,
+   "Заглушать звук при перемотке назад"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_AUDIO_REWIND_MUTE,
+   "Автоматически заглушать аудио при обратной перемотке."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_VOLUME,
@@ -3025,7 +3069,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUDIO_LATENCY,
-   "Желаемая задержка звука в миллисекундах. Не учитывается, если драйвер не поддерживает заданное значение."
+   "Максимальная задержка звука в миллисекундах. Драйвер будет пытаться сохранять задержку на 50% от заданного значения. Может не учитываться, если значение не поддерживается аудиодрайвером."
    )
 
 #ifdef HAVE_MICROPHONE
@@ -3139,7 +3183,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_MAX_TIMING_SKEW,
-   "Максимальное отклонение тайминга звука.\nОпределяет предельное изменение вход. частоты. Повышение значения позволяет добиться знач. отклонений тайминга, напр. при запуске PAL-ядер на NTSC-дисплеях, но снижает точность высоты звука.\nВход. частота * (1.0 +/- (макс. отклонение таймин[...]"
+   "Макс. отклонение тайминга звука.\nОпределяет предельное изменение вход. частоты. Повышение значения позволяет добиться знач. отклонений тайминга, напр. при запуске PAL-ядер на NTSC-дисплеях, но снижает точность высоты звука.\nВход. частота * (1.0 +/- (макс. отклонение тайминга))"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_RATE_CONTROL_DELTA,
@@ -3151,7 +3195,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_AUDIO_RATE_CONTROL_DELTA,
-   "Значение 0 откл. управление частотой. Любые другие значения влияют на отклонение частоты звука.\nОпределяет границы изменения при динам. подстройке вход. частоты.\nФормула: вход. частота * (1.0 +/- (отклонение управления частотой))"
+   "Значение 0 откл. управление частотой. Любые другие значения влияют на отклонение частоты звука.\nОпределяет границы динамической подстройки вход. частоты.\nВход. частота * (1.0 +/- (дельта управления частотой))"
    )
 
 /* Settings > Audio > MIDI */
@@ -3178,7 +3222,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_MIDI_OUTPUT,
-   "Выбор устройства вывода (зависит от драйвера). Если выкл., MIDI-выход будет неактивен. Имя устройства также можно ввести вручную.\nПри включении и поддержке MIDI приложением/игрой часть звуков будет генерироваться MIDI-устройством. При выборе 'null' для MIDI-драйвера данные звуки не в[...]"
+   "Выбор устройства вывода (зависит от драйвера). Если выкл., MIDI-выход будет неактивен. Имя устройства также можно ввести вручную. При вкл. и поддержке MIDI приложением/игрой часть звуков будет генерироваться MIDI-устройством. При выборе 'null' данные звуки не воспроизводятся."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIDI_VOLUME,
@@ -3201,7 +3245,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MIXER_ACTION_PLAY,
-   "Запускает воспроизведение звукового потока. После завершения удаляет звуковой поток из памяти."
+   "Запускает воспроизведение звукового потока. По завершении текущий звуковой поток будет удалён из памяти."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIXER_ACTION_PLAY_LOOPED,
@@ -3209,7 +3253,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MIXER_ACTION_PLAY_LOOPED,
-   "Запускает воспроизведение звукового потока. После окончания воспроизводит трек с начала."
+   "Запускает воспроизведение звукового потока. По завершении трек будет зациклен и запущен с начала."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIXER_ACTION_PLAY_SEQUENTIAL,
@@ -3217,7 +3261,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MIXER_ACTION_PLAY_SEQUENTIAL,
-   "Запускает воспроизведение звукового потока. После окончания последовательно запускает следующие звуковые потоки, а затем возвращается к исходному. Применяется для воспроизведения альбомов."
+   "Запускает воспроизведение звукового потока. По завершении будут поочерёдно проиграны следующие треки, после чего воспроизведение зациклится. Используйте для прослушивания альбомов."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MIXER_ACTION_STOP,
@@ -3245,23 +3289,23 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_STREAM_STATE_NONE,
-   "Статус : Н/Д"
+   "Статус: Н/Д"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_STREAM_STATE_STOPPED,
-   "Статус : остановлено"
+   "Статус: остановлено"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_STREAM_STATE_PLAYING,
-   "Статус : воспроизведение"
+   "Статус: воспроизведение"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_STREAM_STATE_PLAYING_LOOPED,
-   "Статус : воспроизведение (зациклено)"
+   "Статус: воспроизведение (по кругу)"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUDIO_STREAM_STATE_PLAYING_SEQUENTIAL,
-   "Статус : воспроизведение (по порядку)"
+   "Статус: воспроизведение (по порядку)"
    )
 
 /* Settings > Audio > Menu Sounds */
@@ -3315,7 +3359,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_POLL_TYPE_BEHAVIOR,
-   "Определяет то, как RetroArch производит опрос ввода.\nРанний - опрос ввода происходит перед выводом кадра. Стандартный - при запросе на опрос ввода. Поздний - при первом запросе состояния ввода на каждом кадре.\nИсходя из конфигурации, значения 'Ранний' или 'Поздний' могут снизить [...]"
+   "Влияет на опрос ввода в RetroArch. Ранний - опрос ввода произ. перед выводом кадра. Стандартный - при запросе на опрос ввода. Поздний - при первом запросе состояния ввода на каждом кадре. Значения 'Ранний' или 'Поздний' могут снизить задержку ввода. Игнорируется при сетевой игре."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_REMAP_BINDS_ENABLE,
@@ -3328,11 +3372,11 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_REMAP_SORT_BY_CONTROLLER_ENABLE,
    "Сортировать привязки по геймпадам"
-   )   
+   )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_REMAP_SORT_BY_CONTROLLER_ENABLE,
    "Привязки будут применяться только при подключении геймпада, для которого были сохранены."
-   )   
+   )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_AUTODETECT_ENABLE,
    "Автонастройка"
@@ -3344,7 +3388,7 @@ MSG_HASH(
 #if defined(HAVE_DINPUT) || defined(HAVE_WINRAWINPUT)
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_NOWINKEY_ENABLE,
-   "Отключить сочетания клавиши Windows (требуется перезапуск)"
+   "Откл. сочетания клавиши Windows (требуется перезапуск)"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_NOWINKEY_ENABLE,
@@ -3507,19 +3551,19 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_TURBO_MODE_CLASSIC,
-   "Класс. режим с двумя кнопками для срабатывания. Удерживая кнопку действия однократно нажмите кнопку Турбо, чтобы активировать цикл нажать-отпустить.\nКнопку Турбо можно назначить в Настройки/Ввод/Привязки порта 1."
+   "Классический режим, две кнопки для срабатывания. Удерживая кнопку действия однократно нажмите кнопку Турбо, чтобы запустить цикл нажать-отпустить. Кнопку Турбо можно назначить в Настройки/Ввод/Привязки порта 1."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_TURBO_MODE_CLASSIC_TOGGLE,
-   "Класс. режим с двумя кнопками для срабатывания. Удерживая кнопку действия однократно нажмите кнопку Турбо. Повторно нажмите кнопку Турбо, удерживая кнопку действия для откл. турбо.\nКнопку Турбо можно назначить в Настройки/Ввод/Привязки порта 1."
+   "Классический режим, две кнопки для срабатывания. Удерживая кнопку действия однократно нажмите кнопку Турбо. Повторно нажмите кнопку Турбо, удерживая кнопку действия для откл. турбо. Кнопку Турбо можно назначить в Настройки/Ввод/Привязки порта 1."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_TURBO_MODE_SINGLEBUTTON,
-   "Режим переключения. Однократно нажмите кнопку Турбо, чтобы активировать цикл нажать-отпустить для выбранной по умолчанию кнопки. Для откл. нажмите кнопку Турбо повторно.\nКнопку Турбо можно назначить в Настройки/Ввод/Привязки порта 1."
+   "Режим переключения. Однократно нажмите кнопку Турбо, чтобы запустить цикл нажать-отпустить для выбранной по умолчанию кнопки. Для откл. нажмите кнопку Турбо повторно. Кнопку Турбо можно назначить в Настройки/Ввод/Привязки порта 1."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_TURBO_MODE_SINGLEBUTTON_HOLD,
-   "Режим с удержанием. Пока зажата кнопка Турбо, для выбранной по умолчанию кнопки действует цикл нажать-отпустить.\nКнопку Турбо можно назначить в Настройки/Ввод/Привязки порта 1. Для эмуляции автом. огня привяжите Турбо и кнопку по умолчанию к одной кнопке стрельбы джойстик[...]"
+   "Режим с удержанием. Пока зажата кнопка Турбо, для кнопки по умолчанию действует цикл нажать-отпустить. Кнопку Турбо можно назначить в Настройки/Ввод/Привязки порта 1. Для эмуляции автом. огня привяжите Турбо и кнопку по умолчанию к одной кнопке стрельбы геймпада."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_TURBO_DEFAULT_BUTTON,
@@ -3579,7 +3623,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_INPUT_RETROPAD_BINDS,
-   "Libretro использует вирт. геймпад 'RetroPad' для связи между фронтендом и ядрами. Данное меню позволяет привязать физ. устройства ввода к RetroPad и назначить им вирт. порты. Если устройство корректно распознано и преднастроено, то использование меню опционально. Для настройки привязо[...]"
+   "Для связи ядер и фронтенда Libretro исп. вирт. абстракцию 'RetroPad'. Меню позволяет привязать устройства ввода к RetroPad и назначить им вирт. порты.\nПри корректной преднастройке устройства данное действие необязательно. Для привязок ввода отдел. ядер исп. пункт 'Управление' быстрого [...]"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_USER_BINDS,
@@ -3740,7 +3784,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_MENU_TOGGLE,
-   "Переключает экран между отображением меню и запущенным контентом."
+   "Переключение между отображением меню и контентом."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_QUIT_GAMEPAD_COMBO,
@@ -3820,7 +3864,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_INPUT_META_PAUSE_TOGGLE,
-   "Приостанавливает или возобновляет текущий контент."
+   "Переключение между приостановкой и выполнением контента."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_INPUT_META_FRAMEADVANCE,
@@ -4549,7 +4593,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_INFO_SAVESTATE_BYPASS,
-   "Разрешить обход возможностей быстрых сохранений в свойствах ядра, позволяя экспериментировать со связанными функциями (забегание, обратная перемотка и т.д.)."
+   "Разрешает игнорировать возможности быстрых сохранений в описании ядер, позволяя экспериментировать со связанными функциями (забегание, обратная перемотка и т.д.)."
    )
 #ifndef HAVE_DYNAMIC
 MSG_HASH(
@@ -4650,7 +4694,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_GAME_SPECIFIC_OPTIONS,
-   "Загружать изменения опций при запуске ядра."
+   "Загружать настройки опций при запуске ядра."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUTO_OVERRIDES_ENABLE,
@@ -4658,7 +4702,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_AUTO_OVERRIDES_ENABLE,
-   "Загружать изменения настроек при запуске ядра."
+   "Загружать изменения конфигурации при запуске ядра."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_AUTO_REMAPS_ENABLE,
@@ -4686,7 +4730,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_GLOBAL_CORE_OPTIONS,
-   "Хранить все опции ядер в общем файле настроек (retroarch-core-options.cfg). Если выключено, опции каждого ядра будут сохраняться в отдельные файлы/папки внутри каталога 'Конфигурации' RetroArch."
+   "Сохранять все опции ядер в общий файл (retroarch-core-options.cfg). Если выключено, значения опций каждого ядра будут сохраняться в отдельные папки/файлы в каталоге 'config' RetroArch."
    )
 
 /* Settings > Saving */
@@ -4717,7 +4761,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SORT_SAVESTATES_BY_CONTENT_ENABLE,
-   "Сортировать сохранения состояния в папки по каталогу контента"
+   "Помещать быстрые сохранения в папки по каталогу контента"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SORT_SAVESTATES_BY_CONTENT_ENABLE,
@@ -4793,7 +4837,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVESTATE_AUTO_SAVE,
-   "Автоматически создавать сохранение при закрытии контента. RetroArch будет автоматически загружать данное сохранение, если включена 'Автозагрузка сохранений'."
+   "Автоматически сохранять состояние при закрытии контента. Данное сохранение будет загружено при запуске, если включена опция 'Автозагрузка сохранения'."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVESTATE_AUTO_LOAD,
@@ -4817,7 +4861,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SAVE_FILE_COMPRESSION,
-   "Записывать файлы SaveRAM в сжатом формате. Существенно уменьшает размер файлов, немного увеличивая время загрузки/сохранения.\nРаботает только для ядер, использующих стандартный интерфейс libretro для сохранения SaveRAM."
+   "Записывать файлы энергонезависимых сохранений SaveRAM в сжатом формате. Существенно уменьшает размер файлов, незначительно увеличивая время загрузки/сохранения. Действует только для ядер, реализующих сохранение через станд. интерфейс SaveRAM libretro."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SAVESTATE_FILE_COMPRESSION,
@@ -4974,12 +5018,12 @@ MSG_HASH(
    "Фильтровать файлы в браузере файлов по поддерживаемым расширениям."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_USE_BUILTIN_PLAYER,
-   "Встроенный медиаплеер"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FILTER_BY_CURRENT_CORE,
    "Фильтрация по текущему ядру"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_FILTER_BY_CURRENT_CORE,
+   "Фильтровать отображаемые в браузере файлы по текущему ядру."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_USE_LAST_START_DIRECTORY,
@@ -4988,6 +5032,14 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_SUBLABEL_USE_LAST_START_DIRECTORY,
    "При загрузке контента открывать браузер файлов в последнем использованном каталоге. Путь будет сброшен к стандартному значению при перезапуске RetroArch."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_USE_BUILTIN_PLAYER,
+   "Встроенный медиаплеер"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_USE_BUILTIN_IMAGE_VIEWER,
+   "Встроенный просмотр изображений"
    )
 
 /* Settings > Frame Throttle */
@@ -5207,7 +5259,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_STREAMING_URL,
-   "URL трансляции"
+   "URL-адрес трансляции"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UDP_STREAM_PORT,
@@ -5355,12 +5407,24 @@ MSG_HASH(
    "Настройка размера зон перекрытия для блока кнопок. Установите на 100% для симметрии по 8 направлениям."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_INPUT_OVERLAY_ANALOG_RECENTER_ZONE,
+   "Зона перецентровки аналог. оси"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_INPUT_OVERLAY_ANALOG_RECENTER_ZONE,
+   "При нажатии внутри данной области ввод с аналогового стика отсчитывается от первого касания."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OVERLAY,
    "Оверлей"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OVERLAY_AUTOLOAD_PREFERRED,
    "Автозагрузка оверлея"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OVERLAY_AUTOLOAD_PREFERRED,
+   "Вместо установки стандартного оверлея предпочитать загрузку оверлея по названию текущей системы. Игнорируется, если пресет оверлея изменён переопределением."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_OVERLAY_OPACITY,
@@ -5939,7 +6003,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_FONT_SIZE,
-   "Установка размера шрифта уведомлений."
+   "Устанавливает размер шрифта в пунктах. При включении виджетов значение размера применяется только для отображаемой на экране статистики."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MESSAGE_POS_X,
@@ -6096,7 +6160,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_PAUSE_LIBRETRO,
-   "Приостанавливать запущенный контент при вызове меню."
+   "Приостанавливать контент при вызове меню."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_SAVESTATE_RESUME,
@@ -6457,7 +6521,15 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CONTENT_SHOW_PLAYLISTS,
-   "Показывать плейлисты (требуется перезапуск для Ozone/XMB)"
+   "Показывать опцию 'Плейлисты' в главном меню. Игнорируется в GLUI, если включены вкладки плейлистов и панель навигации."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_PLAYLIST_TABS,
+   "Показывать вкладки плейлистов"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_CONTENT_SHOW_PLAYLIST_TABS,
+   "Показывать плейлисты на вкладках. Не влияет на RGUI. Для GLUI должна быть включена панель навигации. Требуется перезапуск для Ozone/XMB."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CONTENT_SHOW_EXPLORE,
@@ -6936,14 +7008,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SETTINGS_SHOW_USER,
    "Показывать 'Пользователь'"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_ICON_THUMBNAILS,
-   "Значки в плейлистах"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_ICON_THUMBNAILS,
-   "Тип иконки, отображаемый для плейлиста."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SETTINGS_SHOW_USER,
@@ -7909,11 +7973,11 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SCAN_SERIAL_AND_CRC,
-   "Сверять CRC при сканировании возможных дублей"
+   "Сканировать с CRC для исключения повторов"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_SCAN_SERIAL_AND_CRC,
-   "Иногда серийные номера образов дублируются, в частности для игр PSP/PSN. При сканировании только по серийным номерам возможна привязка контента к неправильной системе. Опция добавляет проверку CRC, которая ощутимо замедляет сканирование, но повышает его точность."
+   "Некоторые образы могут иметь одинаковый серийный номер, в частности игры PSP/PSN. Сканирование только по серийным номерам может соотносить контент с неправильной системой. Опция добавляет проверку CRC, которая существенно замедляет сканирование, но делает его точней."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_PLAYLIST_MANAGER_LIST,
@@ -8172,7 +8236,7 @@ MSG_HASH(
    )
 MSG_HASH( /* FIXME Not RGUI specific */
    MENU_ENUM_LABEL_VALUE_RGUI_BROWSER_DIRECTORY,
-   "Браузер файлов"
+   "Начальный каталог"
    )
 MSG_HASH( /* FIXME Not RGUI specific */
    MENU_ENUM_SUBLABEL_RGUI_BROWSER_DIRECTORY,
@@ -8417,7 +8481,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_STEAM_RICH_PRESENCE_FORMAT,
-   "Выбор передаваемой информации о запущенном контенте."
+   "Выбор передаваемой информации о контенте."
    )
 
 MSG_HASH(
@@ -9017,7 +9081,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_RESUME_CONTENT,
-   "Закрыть быстрое меню и возобновить текущий контент."
+   "Закрыть быстрое меню и возобновить контент."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_RESTART_CONTENT,
@@ -9033,7 +9097,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CLOSE_CONTENT,
-   "Закрывает текущий контент. Несохранённые данные могут быть утеряны."
+   "Закрыть контент. Может привести к потере несохранённых данных."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_TAKE_SCREENSHOT,
@@ -9169,7 +9233,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_OPTIONS,
-   "Настройка параметров загруженного контента."
+   "Изменение настроек для контента."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_INPUT_REMAPPING_OPTIONS,
@@ -9177,7 +9241,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_CORE_INPUT_REMAPPING_OPTIONS,
-   "Настройка управления для текущего контента."
+   "Изменение управления для контента."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CORE_CHEAT_OPTIONS,
@@ -9752,7 +9816,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DISK_TRAY_EJECT,
-   "Открыть виртуальный лоток привода и извлечь текущий диск. Если включена опция 'Пауза при вызове меню', некоторым ядрам после любых операций с дисками требуется на несколько секунд возобновить контент для регистрации изменений."
+   "Открыть виртуальный лоток привода и извлечь текущий диск. Если вкл. опция 'Пауза при вызове меню', для некоторых ядер после любых операций с дисками требуется на несколько секунд возобновить контент для регистрации изменений."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DISK_TRAY_INSERT,
@@ -9768,7 +9832,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DISK_IMAGE_APPEND,
-   "Извлеките текущий диск, выберите из памяти новый, вставьте и закройте лоток привода.\nПримечание: данная функция неактуальна. Игры на нескольких дисках рекомендуется загружать через M3U-плейлисты, которые позволяют переключать диски с помощью опций 'Извлечь диск' и 'Индекс [...]"
+   "Извлеките текущий диск, выберите новый, вставьте и закройте лоток привода.\nВнимание: данная функция устарела. Игры на нескольких дисках рекомендуется загружать через M3U-плейлисты, которые реализуют выбор диска при помощи опций 'Извлечь диск' и 'Индекс диска'."
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_DISK_IMAGE_APPEND_TRAY_OPEN,
@@ -9803,7 +9867,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_SHADER_WATCH_FOR_CHANGES,
-   "Отслеживать изменения в файлах шейдера. После сохранения изменений шейдера в память, он будет автоматически перекомпилирован и применён к запущенному контенту."
+   "Отслеживать изменения в файлах шейдера. При сохранении изменений шейдера в память он автоматически будет повторно скомпилирован и применён к контенту."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_REMEMBER_LAST_DIR,
@@ -9823,7 +9887,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_SHADER_PRESET,
-   "Немедленная загрузка пресета шейдера с обновлением меню.\nОтображаемый в меню коэффициент масштабирования действителен только в том случае, если в пресете используются простые методы масштабирования (напр. масштабирование источника, равные коэффициенты масштабировани[...]"
+   "Немедленная загрузка пресета шейдера с обновлением меню.\nОтображаемый в меню коэффициент масштабирования действует только в том случае, если в пресете исп. простые методы масштабирования (напр. масштабирование источника, равное масштабирование по X/Y)."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PRESET_PREPEND,
@@ -9867,7 +9931,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_SHADER_APPLY_CHANGES,
-   "Опция используется при изменении количества проходов, методов фильтрации и масштаба FBO. Изменяйте данные настройки шейдера внимательно, т.к. это может повлиять на производительность. После применения шейдеров настройки сохраняются во временный файл (retroarch.slang/.cgp/.glslp) и заг[...]"
+   "Используйте после изменения количества проходов шейдера, фильтрации и масштаба FBO. Изменяйте данные настройки внимательно, т.к. это может влиять на производительность.\nПосле применения шейдера настройки сохраняются во временный файл (retroarch.slang/.cgp/.glslp) и загружаются. Файл о[...]"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_PARAMETERS,
@@ -9875,7 +9939,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_SHADER_PARAMETERS,
-   "Настройка загруженного шейдера. Изменения не будут сохранены в файл пресета."
+   "Настройка параметров загруженного шейдера. Изменения не сохраняются в файл пресета."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_SHADER_NUM_PASSES,
@@ -9887,7 +9951,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_SHADER_NUM_PASSES,
-   "RetroArch позволяет смешивать и сопоставлять различные шейдеры с произвольным числом проходов, аппаратными фильтрами и коэффициентами масштабирования. Данная настройка определяет число используемых проходов шейдера. При установке значения на 0 и применении изменений будет[...]"
+   "RetroArch позволяет смешивать и назначать различные шейдеры к проходам, с применением аппаратных фильтров и коэффициентов масштабирования.\nОпция определяет число используемых проходов шейдера. При установке значения 0 и применении изменений будет исп. 'пустой' шейдер."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SHADER,
@@ -9895,7 +9959,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_SHADER_PASS,
-   "Путь к шейдеру. Все шейдеры должны быть одного типа (напр. Cg, GLSL или Slang). Укажите в настройках каталог шейдеров, чтобы изменить папку, с которой браузер будет начинать обзор шейдеров."
+   "Путь к файлу шейдера. Все шейдеры должны быть одного типа (напр. Cg, GLSL или Slang). Укажите в настройках каталог шейдеров, в котором браузер будет начинать обзор."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_FILTER,
@@ -9911,7 +9975,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_HELP_VIDEO_SHADER_SCALE_PASS,
-   "Масштаб для текущего прохода. Множители масштабирования складываются, напр. 2x для первого прохода и 2x для второго в сумме дают множитель 4x. При наличии множителя в последнем проходе результирующее изображение растягивается на весь экран с фильтром по умолчанию, исходя из [...]"
+   "Масштаб текущего прохода. Коэф. масштабирования суммируются, напр. 2x для 1-го прохода и 2x для 2-го в сумме дают множитель 4x.\nПри наличии коэф. в последнем проходе результат растягивается на весь экран с фильтром по умолчанию, согласно значению 'Билинейная фильтрация' в настро[...]"
    )
 
 /* Quick Menu > Shaders > Save */
@@ -10267,6 +10331,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CYCLE_THUMBNAILS,
    "Переключить эскизы"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RANDOM_SELECT,
+   "Случайный выбор"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BASIC_MENU_CONTROLS_BACK,
@@ -11028,7 +11096,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_MENU_RGUI_TRANSPARENCY,
-   "Отображать в фоне запущенный контент при вызове быстрого меню. Отключение прозрачности может изменить цвета темы."
+   "Включить отображение контента в фоне при вызове быстрого меню. Отключение прозрачности может влиять на цвета темы."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_MENU_RGUI_SHADOWS,
@@ -11325,6 +11393,14 @@ MSG_HASH(
    "Тип миниатюры для отображения слева."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_ICON_THUMBNAILS,
+   "Иконка миниатюр"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_ICON_THUMBNAILS,
+   "Тип отображаемой в плейлистах иконки миниатюр."
+   )
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_DYNAMIC_WALLPAPER,
    "Динамические обои"
    )
@@ -11591,6 +11667,14 @@ MSG_HASH(
    MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_MIDGAR,
    "Мидгар"
    )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_GRAY_DARK,
+   "Тёмно-серая"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_XMB_MENU_COLOR_THEME_GRAY_LIGHT,
+   "Светло-серая"
+   )
 
 /* Ozone: Settings > User Interface > Appearance */
 
@@ -11619,46 +11703,6 @@ MSG_HASH(
    "Плейлисты будут пересортированы в алфавитном порядке после удаления названий компаний."
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_MENU_COLOR_THEME,
-   "Цветовая тема"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_OZONE_MENU_COLOR_THEME,
-   "Выбор другой цветовой темы."
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_BASIC_WHITE,
-   "Базовая белая"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_BASIC_BLACK,
-   "Базовая чёрная"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_GRUVBOX_DARK,
-   "Gruvbox тёмная"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_SELENIUM,
-   "Селен"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_SOLARIZED_DARK,
-   "Solarized тёмная"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_SOLARIZED_LIGHT,
-   "Solarized светлая"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_GRAY_DARK,
-   "Тёмно-серая"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_GRAY_LIGHT,
-   "Светло-серая"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_LEFT_THUMBNAILS_OZONE,
    "Дополнительный эскиз"
    )
@@ -11682,6 +11726,48 @@ MSG_HASH(
    MENU_ENUM_SUBLABEL_OZONE_THUMBNAIL_SCALE_FACTOR,
    "Изменяет размер области миниатюр."
    )
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_MENU_COLOR_THEME,
+   "Цветовая тема"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_OZONE_MENU_COLOR_THEME,
+   "Выбор другой цветовой темы."
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_BASIC_WHITE,
+   "Базовая белая"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_BASIC_BLACK,
+   "Базовая чёрная"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_GRUVBOX_DARK,
+   "Gruvbox тёмная"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_SOLARIZED_DARK,
+   "Solarized тёмная"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_SOLARIZED_LIGHT,
+   "Solarized светлая"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_GRAY_DARK,
+   "Тёмно-серая"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_GRAY_LIGHT,
+   "Светло-серая"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_OZONE_COLOR_THEME_SELENIUM,
+   "Селен"
+   )
+
 
 /* MaterialUI: Settings > User Interface > Appearance */
 
@@ -12086,6 +12172,10 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_THUMBNAIL_TITLE_SCREEN,
    "Титульный экран"
+   )
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QT_THUMBNAIL_LOGO,
+   "Логотип"
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_QT_ALL_PLAYLISTS,
@@ -12643,10 +12733,6 @@ MSG_HASH(
    "Клавиатура"
    )
 MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_USE_BUILTIN_IMAGE_VIEWER,
-   "Встроенный просмотр изображений"
-   )
-MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MAX_SWAPCHAIN_IMAGES,
    "Максимум изображений в свопчейне"
    )
@@ -12668,7 +12754,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_VIDEO_MAX_FRAME_LATENCY,
-   "Макс. задержка кадра"
+   "Максимальная задержка кадра"
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_VIDEO_MAX_FRAME_LATENCY,
@@ -12780,14 +12866,6 @@ MSG_HASH(
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_SELECT_FROM_PLAYLIST,
    "Выбрать из плейлиста"
-   )
-MSG_HASH(
-   MENU_ENUM_LABEL_VALUE_RESUME,
-   "Продолжить"
-   )
-MSG_HASH(
-   MENU_ENUM_SUBLABEL_RESUME,
-   "Закрыть быстрое меню и возобновить текущий контент."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_CHEAT_VIEW_MATCHES,
@@ -13382,10 +13460,6 @@ MSG_HASH(
 MSG_HASH(
    MSG_AUTODETECT,
    "Автоопределение"
-   )
-MSG_HASH(
-   MSG_AUTOLOADING_SAVESTATE_FROM,
-   "Автозагрузка сохранения из"
    )
 MSG_HASH(
    MSG_CAPABILITIES,
@@ -14480,6 +14554,10 @@ MSG_HASH(
    "Не удалось закрыть лоток виртуального cd-привода."
    )
 MSG_HASH(
+   MSG_AUTOLOADING_SAVESTATE_FROM,
+   "Автозагрузка сохранения из"
+   )
+MSG_HASH(
    MSG_AUTOLOADING_SAVESTATE_FAILED,
    "Ошибка автоматической загрузки сохранения состояния из \"%s\"."
    )
@@ -14493,7 +14571,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MSG_DEVICE_CONFIGURED_IN_PORT_NR,
-   "%s подключен к порту %u"
+   "%s подключен в порт %u"
    )
 MSG_HASH(
    MSG_DEVICE_DISCONNECTED_FROM_PORT,
@@ -14788,6 +14866,14 @@ MSG_HASH(
    "Активирован чит-код. Режим харкдора для достижений в текущем сеансе отключен."
    )
 MSG_HASH(
+   MSG_CHEEVOS_HARDCORE_MODE_CHANGED_BY_HOST,
+   "Режим хардкора для достижений изменён хостом."
+   )
+MSG_HASH(
+   MSG_CHEEVOS_HARDCORE_MODE_REQUIRES_NEWER_HOST,
+   "Требуется обновить хост сетевой игры. Режим хардкора для достижений отключен в текущем сеансе."
+   )
+MSG_HASH(
    MSG_CHEEVOS_MASTERED_GAME,
    "Завершено %s"
    )
@@ -14826,10 +14912,6 @@ MSG_HASH(
 MSG_HASH(
    MSG_CHEEVOS_HARDCORE_PAUSED_MANUAL_FRAME_DELAY,
    "Режим хардкора приостановлен. Ручная установка задержки кадра запрещена."
-   )
-MSG_HASH(
-   MSG_CHEEVOS_HARDCORE_PAUSED_SHADER_SUBFRAMES,
-   "Режим хардкора приостановлен. Подкадры шейдера запрещены."
    )
 MSG_HASH(
    MSG_CHEEVOS_HARDCORE_PAUSED_VSYNC_SWAP_INTERVAL,
@@ -15735,7 +15817,7 @@ MSG_HASH(
    )
 MSG_HASH(
    MENU_ENUM_SUBLABEL_BOTTOM_FONT_ENABLE,
-   "Показывает шрифт нижнего меню. Включите для отображения описания кнопок на нижнем экране. Не включает даты сохранений."
+   "Показывать шрифт нижнего меню. Включите для отображения описания кнопок на нижнем экране. Не включает даты быстрых сохранений."
    )
 MSG_HASH(
    MENU_ENUM_LABEL_VALUE_BOTTOM_FONT_COLOR_RED,
@@ -15804,3 +15886,42 @@ MSG_HASH(
    MSG_AI_SERVICE_STOPPED,
    "остановлен."
    )
+#ifdef HAVE_GAME_AI
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_GAME_AI_MENU_OPTION,
+   "Замещение игрока ИИ"
+   )
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_CORE_GAME_AI_OPTIONS,
+   "Игровой ИИ"
+   )
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_GAME_AI_OVERRIDE_P1,
+   "Заменить Игрока 1"
+   )
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_GAME_AI_OVERRIDE_P2,
+   "Заменить Игрока 2"
+   )
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_GAME_AI_SHOW_DEBUG,
+   "Показать отладку"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_GAME_AI_SHOW_DEBUG,
+   "Показать отладку"
+   )
+
+MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_QUICK_MENU_SHOW_GAME_AI,
+   "Показывать 'Игровой ИИ'"
+   )
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_QUICK_MENU_SHOW_GAME_AI,
+   "Показывать опцию 'Игровой ИИ'."
+   )
+#endif

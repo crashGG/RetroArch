@@ -752,6 +752,16 @@ public:
       frame_direction = direction;
    }
 
+   void set_frame_time_delta(uint32_t time_delta)
+   {
+      frame_time_delta = time_delta;
+   }
+
+   void set_original_fps(float fps)
+   {
+      original_fps = fps;
+   }
+
    void set_rotation(uint32_t rot)
    {
       rotation = rot;
@@ -839,7 +849,7 @@ private:
    CommonResources *common         = nullptr;
 
    Size2D current_framebuffer_size = {};
-   gl3_viewport current_viewport;
+   gl3_viewport curr_vp;
    gl3_filter_chain_pass_info pass_info;
 
    std::vector<uint32_t> vertex_shader;
@@ -883,6 +893,8 @@ private:
    uint64_t frame_count = 0;
    unsigned frame_count_period = 0;
    int32_t frame_direction = 1;
+   uint32_t frame_time_delta = 0;
+   float original_fps = 0;
    uint32_t rotation = 0;
    float core_aspect = 0;
    float core_aspect_rot = 0;
@@ -1051,7 +1063,7 @@ void Pass::reflect_parameter_array(const char *name, std::vector<slang_texture_s
          frag = glGetUniformLocation(pipeline, frag_n);
 
          if (vert >= 0)
-            m->location.push_vertex = vert;
+            m->location.push_vertex   = vert;
          if (frag >= 0)
             m->location.push_fragment = frag;
       }
@@ -1093,6 +1105,8 @@ bool Pass::init_pipeline()
    reflect_parameter("FinalViewportSize", reflection.semantics[SLANG_SEMANTIC_FINAL_VIEWPORT]);
    reflect_parameter("FrameCount", reflection.semantics[SLANG_SEMANTIC_FRAME_COUNT]);
    reflect_parameter("FrameDirection", reflection.semantics[SLANG_SEMANTIC_FRAME_DIRECTION]);
+   reflect_parameter("FrameTimeDelta", reflection.semantics[SLANG_SEMANTIC_FRAME_TIME_DELTA]);
+   reflect_parameter("OriginalFPS", reflection.semantics[SLANG_SEMANTIC_ORIGINAL_FPS]);
    reflect_parameter("Rotation", reflection.semantics[SLANG_SEMANTIC_ROTATION]);
    reflect_parameter("OriginalAspect", reflection.semantics[SLANG_SEMANTIC_CORE_ASPECT]);
    reflect_parameter("OriginalAspectRotated", reflection.semantics[SLANG_SEMANTIC_CORE_ASPECT_ROT]);
@@ -1140,7 +1154,7 @@ Size2D Pass::get_output_size(const Size2D &original,
          break;
 
       case GLSLANG_FILTER_CHAIN_SCALE_VIEWPORT:
-         width = (retroarch_get_rotation() % 2 ? current_viewport.height : current_viewport.width) * pass_info.scale_x;
+         width = (retroarch_get_rotation() % 2 ? curr_vp.height : curr_vp.width) * pass_info.scale_x;
          break;
 
       case GLSLANG_FILTER_CHAIN_SCALE_ABSOLUTE:
@@ -1162,7 +1176,7 @@ Size2D Pass::get_output_size(const Size2D &original,
          break;
 
       case GLSLANG_FILTER_CHAIN_SCALE_VIEWPORT:
-         height = (retroarch_get_rotation() % 2 ? current_viewport.width : current_viewport.height) * pass_info.scale_y;
+         height = (retroarch_get_rotation() % 2 ? curr_vp.width : curr_vp.height) * pass_info.scale_y;
          break;
 
       case GLSLANG_FILTER_CHAIN_SCALE_ABSOLUTE:
@@ -1549,8 +1563,8 @@ void Pass::build_semantics(uint8_t *buffer,
                        current_framebuffer_size.width,
                        current_framebuffer_size.height);
    build_semantic_vec4(buffer, SLANG_SEMANTIC_FINAL_VIEWPORT,
-                       unsigned(current_viewport.width),
-                       unsigned(current_viewport.height));
+                       unsigned(curr_vp.width),
+                       unsigned(curr_vp.height));
 
    build_semantic_uint(buffer, SLANG_SEMANTIC_FRAME_COUNT,
                        frame_count_period
@@ -1559,6 +1573,12 @@ void Pass::build_semantics(uint8_t *buffer,
 
    build_semantic_int(buffer, SLANG_SEMANTIC_FRAME_DIRECTION,
                       frame_direction);
+
+   build_semantic_uint(buffer, SLANG_SEMANTIC_FRAME_TIME_DELTA,
+                      frame_time_delta);
+
+   build_semantic_float(buffer, SLANG_SEMANTIC_ORIGINAL_FPS,
+                      original_fps);
 
    build_semantic_uint(buffer, SLANG_SEMANTIC_ROTATION,
                       rotation);
@@ -1620,7 +1640,7 @@ void Pass::build_commands(
       const gl3_viewport &vp,
       const float *mvp)
 {
-   current_viewport = vp;
+   curr_vp          = vp;
    Size2D size      = get_output_size(
          { original.texture.width, original.texture.height },
          { source.texture.width, source.texture.height });
@@ -1663,11 +1683,11 @@ void Pass::build_commands(
       unsigned vertex_binding   = locations.buffer_index_ubo_vertex;
       unsigned fragment_binding = locations.buffer_index_ubo_fragment;
       const void *data          = uniforms.data();
-      size_t size               = reflection.ubo_size;
+      size_t _len               = reflection.ubo_size;
       GLuint id                 = ubo_ring.buffers[ubo_ring.buffer_index];
 
       glBindBuffer(GL_UNIFORM_BUFFER, id);
-      glBufferSubData(GL_UNIFORM_BUFFER, 0, size, data);
+      glBufferSubData(GL_UNIFORM_BUFFER, 0, _len, data);
       glBindBuffer(GL_UNIFORM_BUFFER, 0);
       if (vertex_binding != GL_INVALID_INDEX)
          glBindBufferBase(GL_UNIFORM_BUFFER, vertex_binding, id);
@@ -1700,22 +1720,22 @@ void Pass::build_commands(
 
    if (final_pass)
    {
-      glViewport(current_viewport.x, current_viewport.y,
-                 current_viewport.width, current_viewport.height);
+      glViewport(curr_vp.x, curr_vp.y,
+                 curr_vp.width, curr_vp.height);
 #ifdef GL3_ROLLING_SCANLINE_SIMULATION
       if (simulate_scanline)
       {
-         glScissor(  current_viewport.x,
-                     int32_t((float(current_viewport.height) / float(total_subframes))
+         glScissor(  curr_vp.x,
+                     int32_t((float(curr_vp.height) / float(total_subframes))
                               * float(current_subframe - 1)),
-                     current_viewport.width,
-                     uint32_t(float(current_viewport.height) / float(total_subframes))
+                     curr_vp.width,
+                     uint32_t(float(curr_vp.height) / float(total_subframes))
          );
       }
       else
       {
-         glScissor(  current_viewport.x, current_viewport.y,
-                     current_viewport.width, current_viewport.height);
+         glScissor(  curr_vp.x,     curr_vp.y,
+                     curr_vp.width, curr_vp.height);
       }
 #endif /* GL3_ROLLING_SCANLINE_SIMULATION */
    }
@@ -1817,6 +1837,8 @@ public:
    void set_frame_count(uint64_t count);
    void set_frame_count_period(unsigned pass, unsigned period);
    void set_frame_direction(int32_t direction);
+   void set_frame_time_delta(uint32_t rot);
+   void set_original_fps(float fps);
    void set_rotation(uint32_t rot);
    void set_core_aspect(float coreaspect);
    void set_core_aspect_rot(float coreaspectrot);
@@ -2308,6 +2330,20 @@ void gl3_filter_chain::set_frame_direction(int32_t direction)
       passes[i]->set_frame_direction(direction);
 }
 
+void gl3_filter_chain::set_frame_time_delta(uint32_t time_delta)
+{
+   unsigned i;
+   for (i = 0; i < passes.size(); i++)
+      passes[i]->set_frame_time_delta(time_delta);
+}
+
+void gl3_filter_chain::set_original_fps(float fps)
+{
+   unsigned i;
+   for (i = 0; i < passes.size(); i++)
+      passes[i]->set_original_fps(fps);
+}
+
 void gl3_filter_chain::set_rotation(uint32_t rot)
 {
    unsigned i;
@@ -2764,6 +2800,20 @@ void gl3_filter_chain_set_frame_direction(
       int32_t direction)
 {
    chain->set_frame_direction(direction);
+}
+
+void gl3_filter_chain_set_frame_time_delta(
+      gl3_filter_chain_t *chain,
+      uint32_t time_delta)
+{
+   chain->set_frame_time_delta(time_delta);
+}
+
+void gl3_filter_chain_set_original_fps(
+      gl3_filter_chain_t *chain,
+      float fps)
+{
+   chain->set_original_fps(fps);
 }
 
 void gl3_filter_chain_set_rotation(
